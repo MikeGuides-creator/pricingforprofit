@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculate What Your Work Is Really Worth - MikeGuides</title>
+    <meta name="description" content="Stop undercharging for your work. Our free calculator reveals your true costs and profitable rates in under 2 minutes.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #1a202c;
+            background: linear-gradient(135deg, #1e40af 0%, #6b7280 50%, #374151 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .hero-section {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 24px;
+            padding: 80px 50px;
+            margin-bottom: 50px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -50%;
+            width: 200%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(30, 64, 175, 0.05), transparent);
+            animation: shine 4s infinite;
+        }
+
+        @keyframes shine {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        .logo {
+            color: #1e40af;
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-section h1 {
+            color: #1f2937;
+            font-size: 4rem;
+            font-weight: 900;
+            margin-bottom: 25px;
+            line-height: 1.1;
+            background: linear-gradient(135deg, #1e40af, #374151);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-subtitle {
+            color: #4b5563;
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            font-weight: 500;
+            position: relative;
+            z-index: 1;
+        }
+
+        .shock-stat {
+            background: linear-gradient(135deg, #1e40af, #3730a3);
+            color: white;
+            padding: 35px;
+            border-radius: 20px;
+            margin: 40px 0;
+            font-size: 1.6rem;
+            font-weight: 800;
+            box-shadow: 0 15px 35px rgba(30, 64, 175, 0.3);
+            position: relative;
+            z-index: 1;
+            animation: pulse 3s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, #1e40af, #3730a3);
+            color: white;
+            border: none;
+            padding: 25px 50px;
+            border-radius: 15px;
+            font-size: 1.4rem;
+            font-weight: 800;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            box-shadow: 0 15px 35px rgba(30, 64, 175, 0.4);
+            position: relative;
+            z-index: 1;
+            margin: 20px 0;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 45px rgba(30, 64, 175, 0.5);
+        }
+
+        .trust-indicators {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+            margin: 40px 0;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 1;
+        }
+
+        .trust-item {
+            display: flex;
+            align-items: center;
+            color: #4b5563;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .trust-icon {
+            background: linear-gradient(135deg, #6b7280, #374151);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 12px;
+            font-size: 1.2rem;
+        }
+
+        .problem-section {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 24px;
+            padding: 60px 50px;
+            margin-bottom: 50px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .section-title {
+            color: #1f2937;
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .problem-item {
+            background: #f9fafb;
+            padding: 30px;
+            border-radius: 16px;
+            border-left: 5px solid #1e40af;
+            text-align: center;
+        }
+
+        .problem-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .problem-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #1f2937;
+            margin-bottom: 15px;
+        }
+
+        .problem-description {
+            color: #4b5563;
+            line-height: 1.7;
+        }
+
+        .solution-section {
+            background: linear-gradient(135deg, #1e40af, #3730a3);
+            color: white;
+            border-radius: 24px;
+            padding: 60px 50px;
+            margin-bottom: 50px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .solution-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/></svg>') repeat;
+            pointer-events: none;
+        }
+
+        .solution-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .feature-item {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .feature-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .testimonials-section {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 24px;
+            padding: 60px 50px;
+            margin-bottom: 50px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .testimonial {
+            background: #f9fafb;
+            border-radius: 16px;
+            padding: 30px;
+            border-left: 5px solid #6b7280;
+            position: relative;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            color: #1f2937;
+        }
+
+        .testimonial-author {
+            font-weight: 700;
+            color: #4b5563;
+        }
+
+        .final-cta-section {
+            background: linear-gradient(135deg, #374151, #1f2937);
+            color: white;
+            border-radius: 24px;
+            padding: 80px 50px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .final-cta-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .final-cta-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .urgency-text {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            padding: 20px;
+            border-radius: 12px;
+            margin: 30px 0;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            .hero-section h1 {
+                font-size: 2.8rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.4rem;
+            }
+            
+            .hero-section,
+            .problem-section,
+            .solution-section,
+            .testimonials-section,
+            .final-cta-section {
+                padding: 40px 30px;
+            }
+            
+            .trust-indicators {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .cta-button {
+                padding: 20px 40px;
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Hero Section -->
+        <div class="hero-section">
+            <div class="logo">MikeGuides</div>
+            <h1>Calculate What Your Work Is Really Worth</h1>
+            <p class="hero-subtitle">Stop undercharging and start building wealth with our free pricing calculator</p>
+            
+            <div class="shock-stat">
+                🚨 Most service providers undercharge by 30-50% without knowing it
+            </div>
+            
+            <a href="calculator.html" class="cta-button">Get FREE Pricing Calculator</a>
+            
+            <div class="trust-indicators">
+                <div class="trust-item">
+                    <div class="trust-icon">⚡</div>
+                    <span>Results in 2 Minutes</span>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-icon">📱</div>
+                    <span>Works on Any Device</span>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-icon">🔒</div>
+                    <span>100% Free</span>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-icon">👥</div>
+                    <span>Used by 2,800+ Professionals</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Problem Section -->
+        <div class="problem-section">
+            <h2 class="section-title">Are You Making These Costly Mistakes?</h2>
+            
+            <div class="problem-grid">
+                <div class="problem-item">
+                    <div class="problem-icon">💸</div>
+                    <div class="problem-title">Hidden Costs Killing Profits</div>
+                    <div class="problem-description">Equipment, insurance, taxes, overhead - the expenses that silently destroy your bottom line</div>
+                </div>
+                
+                <div class="problem-item">
+                    <div class="problem-icon">⏰</div>
+                    <div class="problem-title">Not Counting All Your Time</div>
+                    <div class="problem-description">Admin work, travel, estimates, follow-ups - you're working more hours than you're billing for</div>
+                </div>
+                
+                <div class="problem-item">
+                    <div class="problem-icon">📉</div>
+                    <div class="problem-title">Competing on Price</div>
+                    <div class="problem-description">Racing to the bottom while competitors who know their numbers charge 2x more and stay busy</div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 40px;">
+                <p style="font-size: 1.3rem; color: #1f2937; font-weight: 600;">If you've ever finished a project wondering "where did all the profit go?" - you're not alone.</p>
+            </div>
+        </div>
+
+        <!-- Solution Section -->
+        <div class="solution-section">
+            <div class="solution-content">
+                <h2 style="font-size: 2.5rem; font-weight: 800; margin-bottom: 30px;">The FREE Calculator That Changes Everything</h2>
+                <p style="font-size: 1.3rem; margin-bottom: 40px; opacity: 0.95;">Finally, a tool that reveals your TRUE costs and profitable rates</p>
+                
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <div class="feature-icon">🧮</div>
+                        <div class="feature-title">True Cost Analysis</div>
+                        <div>Uncover hidden costs that destroy profits</div>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <div class="feature-icon">📊</div>
+                        <div class="feature-title">Break-Even Rate</div>
+                        <div>Know exactly what you need to charge to stop losing money</div>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <div class="feature-icon">💰</div>
+                        <div class="feature-title">Profitable Pricing</div>
+                        <div>Get rates that actually build wealth, not just pay bills</div>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <div class="feature-icon">📱</div>
+                        <div class="feature-title">Mobile Ready</div>
+                        <div>Calculate on-site with your phone or tablet</div>
+                    </div>
+                </div>
+                
+                <a href="calculator.html" class="cta-button" style="margin-top: 30px;">Calculate My True Costs FREE</a>
+            </div>
+        </div>
+
+        <!-- Testimonials Section -->
+        <div class="testimonials-section">
+            <h2 class="section-title">What People Are Saying</h2>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial">
+                    <div class="testimonial-text">"I've been losing $1,200 a month for two years! Used this calculator and raised my rates 40%. Best decision I ever made."</div>
+                    <div class="testimonial-author">- Mike R., Contractor, Texas</div>
+                </div>
+                
+                <div class="testimonial">
+                    <div class="testimonial-text">"This opened my eyes. I thought I was making money but I was barely breaking even. Now I'm actually profitable."</div>
+                    <div class="testimonial-author">- Sarah L., Consultant, Ohio</div>
+                </div>
+                
+                <div class="testimonial">
+                    <div class="testimonial-text">"Finally, someone who gets what service providers actually deal with. This isn't generic advice - it's the real deal."</div>
+                    <div class="testimonial-author">- Carlos M., Freelancer, California</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Final CTA Section -->
+        <div class="final-cta-section">
+            <div class="final-cta-content">
+                <h2 style="font-size: 2.8rem; font-weight: 800; margin-bottom: 25px;">Stop Working for Free</h2>
+                <p style="font-size: 1.4rem; margin-bottom: 30px;">Every day you wait is another day of lost profits</p>
+                
+                <div class="urgency-text">
+                    ⏰ Takes less than 2 minutes • Results you can use immediately • Completely FREE
+                </div>
+                
+                <a href="calculator.html" class="cta-button" style="font-size: 1.5rem; padding: 25px 60px;">Get My FREE Calculator Now</a>
+                
+                <p style="margin-top: 30px; opacity: 0.9;">Join 2,800+ professionals who've discovered their true costs and started charging what they're worth</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Track page engagement
+        let engagementData = {
+            timeOnPage: Date.now(),
+            scrollDepth: 0,
+            ctaClicks: 0
+        };
+
+        // Track scroll depth
+        window.addEventListener('scroll', function() {
+            const scrollPercent = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+            engagementData.scrollDepth = Math.max(engagementData.scrollDepth, scrollPercent);
+        });
+
+        // Track CTA clicks
+        document.querySelectorAll('.cta-button').forEach(button => {
+            button.addEventListener('click', function() {
+                engagementData.ctaClicks++;
+                console.log('CTA clicked:', this.textContent);
+            });
+        });
+
+        // Send engagement data when user leaves
+        window.addEventListener('beforeunload', function() {
+            engagementData.timeOnPage = Date.now() - engagementData.timeOnPage;
+            console.log('Page engagement:', engagementData);
+            // In real version, send to your analytics system
+        });
+
+        // Add some dynamic elements
+        setInterval(function() {
+            const shockStat = document.querySelector('.shock-stat');
+            if (shockStat) {
+                shockStat.style.transform = 'scale(1.02)';
+                setTimeout(() => {
+                    shockStat.style.transform = 'scale(1)';
+                }, 200);
+            }
+        }, 4000);
+    </script>
+</body>
+</html>

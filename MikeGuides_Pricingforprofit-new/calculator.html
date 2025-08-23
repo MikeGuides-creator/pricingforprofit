@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FREE Pricing Calculator - MikeGuides</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #1a202c;
+            background: linear-gradient(135deg, #1e40af 0%, #6b7280 50%, #374151 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .hero-section {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 24px;
+            padding: 60px 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .logo {
+            color: #1e40af;
+            font-size: 2rem;
+            font-weight: 900;
+            margin-bottom: 20px;
+        }
+
+        .hero-section h1 {
+            color: #1f2937;
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.1;
+            background: linear-gradient(135deg, #1e40af, #374151);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            color: #4b5563;
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            font-weight: 500;
+        }
+
+        .shock-stat {
+            background: linear-gradient(135deg, #1e40af, #3730a3);
+            color: white;
+            padding: 30px;
+            border-radius: 16px;
+            margin: 30px 0;
+            font-size: 1.4rem;
+            font-weight: 700;
+            box-shadow: 0 10px 25px rgba(30, 64, 175, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .shock-stat::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            animation: shimmer 2s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+        }
+
+        .benefit-item {
+            display: flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 25px;
+            border-radius: 16px;
+            font-weight: 600;
+            color: #1f2937;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .benefit-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .benefit-icon {
+            background: linear-gradient(135deg, #6b7280, #374151);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 18px;
+            font-size: 1.4rem;
+            box-shadow: 0 8px 16px rgba(107, 114, 128, 0.3);
+        }
+
+        .calculator-container {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 24px;
+            padding: 50px;
+            margin-bottom: 40px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .calculator-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .calculator-header h2 {
+            color: #1f2937;
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+        }
+
+        .calculator-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 50px;
+            margin-bottom: 50px;
+        }
+
+        .input-section {
+            background: #f9fafb;
+            border-radius: 20px;
+            padding: 35px;
+            border: 2px solid #e5e7eb;
+            transition: all 0.3s ease;
+        }
+
+        .input-section:hover {
+            border-color: #1e40af;
+            box-shadow: 0 10px 25px rgba(30, 64, 175, 0.1);
+        }
+
+        .section-title {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #1f2937;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+        }
+
+        .section-icon {
+            background: linear-gradient(135deg, #1e40af, #3730a3);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-size: 1.4rem;
+            box-shadow: 0 8px 16px rgba(30, 64, 175, 0.3);
+        }
+
+        .input-group {
+            margin-bottom: 25px;
+        }
+
+        .input-label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #1f2937;
+            font-size: 1.1rem;
+        }
+
+        .input-hint {
+            font-size: 0.9rem;
+            color: #6b7280;
+            font-weight: 400;
+            margin-left: 5px;
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 16px 20px;
+            border: 2px solid #e5e7eb;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            background: white;
+            font-weight: 500;
+        }
+
+        .input-field:focus {
+            outline: none;
+            border-color: #1e40af;
+            box-shadow: 0 0 0 4px rgba(30, 64, 175, 0.1);
+            transform: translateY(-1px);
+        }
+
+        .currency {
+            position: relative;
+        }
+
+        .currency::before {
+            content: '$';
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #6b7280;
+            font-weight: 700;
+            font-size: 1.2rem;
+            z-index: 1;
+        }
+
+        .currency .input-field {
+            padding-left: 45px;
+        }
+
+        .results-section {
+            background: linear-gradient(135deg, #1e40af, #3730a3);
+            color: white;
+            border-radius: 24px;
+            padding: 50px;
+            text-align: center;
+            margin: 50px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .results-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/></svg>') repeat;
+            pointer-events: none;
+        }
+
+        .results-title {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            font-weight: 800;
+            position: relative;
+            z-index: 1;
+        }
+
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        .result-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            padding: 35px 25px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .result-card:hover {
+            transform: translateY(-8px);
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .result-value {
+            font-size: 3.2rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .result-label {
+            font-size: 1.1rem;
+            opacity: 0.95;
+            font-weight: 500;
+        }
+
+        .shock-reveal {
+            background: linear-gradient(135deg, #1e40af, #3730a3);
+            color: white;
+            padding: 50px;
+            border-radius: 24px;
+            margin: 40px 0;
+            text-align: center;
+            display: none;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .shock-reveal.show {
+            display: block;
+            animation: slideInShock 0.8s ease;
+        }
+
+        @keyframes slideInShock {
+            from {
+                opacity: 0;
+                transform: scale(0.9) translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        .email-capture {
+            background: linear-gradient(135deg, #374151, #1f2937);
+            color: white;
+            padding: 60px 50px;
+            border-radius: 24px;
+            text-align: center;
+            margin: 50px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .email-capture::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .email-form {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 40px auto;
+            max-width: 500px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            position: relative;
+            z-index: 1;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .email-input {
+            width: 100%;
+            padding: 18px 24px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 12px;
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            color: #1f2937;
+            background: rgba(255, 255, 255, 0.95);
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .email-input:focus {
+            outline: none;
+            border-color: rgba(255, 255, 255, 0.8);
+            background: white;
+            transform: translateY(-1px);
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, #1e40af, #3730a3);
+            color: white;
+            border: none;
+            padding: 20px 40px;
+            border-radius: 12px;
+            font-size: 1.3rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 10px 25px rgba(30, 64, 175, 0.4);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(30, 64, 175, 0.5);
+        }
+
+        .social-proof {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 24px;
+            padding: 50px;
+            margin: 40px 0;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .testimonial {
+            background: #f9fafb;
+            border-radius: 16px;
+            padding: 30px;
+            margin: 25px 0;
+            border-left: 5px solid #6b7280;
+            font-style: italic;
+            font-size: 1.15rem;
+            line-height: 1.7;
+        }
+
+        .testimonial-author {
+            font-weight: 700;
+            color: #1f2937;
+            margin-top: 20px;
+            font-style: normal;
+        }
+
+        @media (max-width: 768px) {
+            .hero-section h1 {
+                font-size: 2.5rem;
+            }
+            
+            .calculator-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .results-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .hero-section,
+            .calculator-container,
+            .email-capture {
+                padding: 30px 25px;
+            }
+            
+            .calculator-grid .input-section {
+                padding: 25px;
+            }
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .feature-highlight {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 40px 0;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .highlight-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+
+        .highlight-item {
+            padding: 25px;
+        }
+
+        .highlight-icon {
+            background: linear-gradient(135deg, #1e40af, #3730a3);
+            color: white;
+            width: 70px;
+            height: 70px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 2rem;
+            box-shadow: 0 10px 25px rgba(30, 64, 175, 0.3);
+        }
+
+        .highlight-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #1f2937;
+            margin-bottom: 15px;
+        }
+
+        .highlight-description {
+            color: #4b5563;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Hero Section -->
+        <div class="hero-section">
+            <div class="logo">MikeGuides</div>
+            <h1>🚨 Calculate What You're Really Worth</h1>
+            <div class="hero-subtitle">The FREE calculator that reveals why you're undercharging</div>
+            
+            <div class="shock-stat pulse">
+                ⚠️ Most service providers undercharge by 30-50% without knowing it
+            </div>
+            
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <div class="benefit-icon">💡</div>
+                    <div>Discover your TRUE hourly cost in 2 minutes</div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">📊</div>
+                    <div>Get exact pricing for any job size</div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">💰</div>
+                    <div>Stop leaving thousands on the table</div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">🎯</div>
+                    <div>Built for all service providers</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Calculator Section -->
+        <div class="calculator-container">
+            <div class="calculator-header">
+                <h2>🧮 Your FREE True Cost Calculator</h2>
+                <p style="font-size: 1.3rem; color: #6b7280;">Enter your real numbers below (takes 2 minutes)</p>
+            </div>
+
+            <div class="calculator-grid">
+                <!-- Labor Costs -->
+                <div class="input-section">
+                    <div class="section-title">
+                        <div class="section-icon">👷</div>
+                        Labor & Team Costs
+                    </div>
+                    
+                    <div class="input-group currency">
+                        <label class="input-label">Your hourly wage <span class="input-hint">(what you pay yourself)</span></label>
+                        <input type="number" class="input-field" id="hourlyWage" placeholder="25.00" value="25" step="0.01">
+                    </div>
+                    
+                    <div class="input-group currency">
+                        <label class="input-label">Taxes & benefits per hour <span class="input-hint">(typically 25-35% of wage)</span></label>
+                        <input type="number" class="input-field" id="payrollTaxes" placeholder="8.75" value="8.75" step="0.01">
+                    </div>
+                    
+                    <div class="input-group">
+                        <label class="input-label">Team size <span class="input-hint">(including yourself)</span></label>
+                        <input type="number" class="input-field" id="crewSize" placeholder="2" value="2" min="1">
+                    </div>
+                    
+                    <div class="input-group">
+                        <label class="input-label">Billable hours per week <span class="input-hint">(actual work time, not admin)</span></label>
+                        <input type="number" class="input-field" id="billableHours" placeholder="32" value="32" min="1">
+                    </div>
+                </div>
+
+                <!-- Overhead Costs -->
+                <div class="input-section">
+                    <div class="section-title">
+                        <div class="section-icon">🏢</div>
+                        Monthly Overhead
+                    </div>
+                    
+                    <div class="input-group currency">
+                        <label class="input-label">Transportation costs <span class="input-hint">(vehicle, fuel, travel)</span></label>
+                        <input type="number" class="input-field" id="vehicleCosts" placeholder="800" value="800" step="0.01">
+                    </div>
+                    
+                    <div class="input-group currency">
+                        <label class="input-label">Insurance <span class="input-hint">(liability, health, etc.)</span></label>
+                        <input type="number" class="input-field" id="insurance" placeholder="600" value="600" step="0.01">
+                    </div>
+                    
+                    <div class="input-group currency">
+                        <label class="input-label">Equipment & tools <span class="input-hint">(purchase, lease, maintenance)</span></label>
+                        <input type="number" class="input-field" id="equipment" placeholder="400" value="400" step="0.01">
+                    </div>
+                    
+                    <div class="input-group currency">
+                        <label class="input-label">Business expenses <span class="input-hint">(phone, marketing, office)</span></label>
+                        <input type="number" class="input-field" id="businessExpenses" placeholder="300" value="300" step="0.01">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Results Section -->
+            <div class="results-section">
+                <h2 class="results-title">🎯 Your REAL Numbers</h2>
+                
+                <div class="results-grid">
+                    <div class="result-card">
+                        <div class="result-value" id="laborCostPerHour">$67.50</div>
+                        <div class="result-label">True Labor Cost/Hour</div>
+                    </div>
+                    <div class="result-card">
+                        <div class="result-value" id="overheadPerHour">$16.25</div>
+                        <div class="result-label">Overhead/Hour</div>
+                    </div>
+                    <div class="result-card">
+                        <div class="result-value" id="breakEvenRate">$83.75</div>
+                        <div class="result-label">Break-Even Rate</div>
+                    </div>
+                    <div class="result-card">
+                        <div class="result-value" id="profitableRate">$117.25</div>
+                        <div class="result-label">Profitable Rate</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Shock Reveal -->
+            <div class="shock-reveal" id="shockReveal">
+                <h2>🚨 REALITY CHECK!</h2>
+                <p style="font-size: 1.5rem; margin: 25px 0;">If you've been charging $50-60/hour like most people...</p>
+                <p style="font-size: 2rem; font-weight: 800; margin: 25px 0;">
+                    You're LOSING <span id="monthlyLoss">$1,872</span> per month!
+                </p>
+                <p style="font-size: 1.3rem;">That's <span id="yearlyLoss">$22,464</span> you're working for FREE every year.</p>
+            </div>
+        </div>
+
+        <!-- Feature Highlights -->
+        <div class="feature-highlight">
+            <h2 style="text-align: center; margin-bottom: 40px; color: #1f2937; font-size: 2.2rem;">What Makes This Different</h2>
+            <div class="highlight-grid">
+                <div class="highlight-item">
+                    <div class="highlight-icon">🔍</div>
+                    <div class="highlight-title">Reveals Hidden Costs</div>
+                    <div class="highlight-description">Uncover the expenses that silently destroy your profits</div>
+                </div>
+                <div class="highlight-item">
+                    <div class="highlight-icon">📱</div>
+                    <div class="highlight-title">Works On Any Device</div>
+                    <div class="highlight-description">Calculate on-site with your phone or tablet</div>
+                </div>
+                <div class="highlight-item">
+                    <div class="highlight-icon">⚡</div>
+                    <div class="highlight-title">Instant Results</div>
+                    <div class="highlight-description">Get your profitable rates in under 2 minutes</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Social Proof -->
+        <div class="social-proof">
+            <h2 style="text-align: center; margin-bottom: 40px; color: #1f2937; font-size: 2.2rem;">What People Are Saying</h2>
+            
+            <div class="testimonial">
+                "I've been losing $1,200 a month for two years! Used this calculator and raised my rates 40%. Best decision I ever made."
+                <div class="testimonial-author">- Mike R., Contractor, Texas</div>
+            </div>
+            
+            <div class="testimonial">
+                "This opened my eyes. I thought I was making money but I was barely breaking even. Now I'm actually profitable."
+                <div class="testimonial-author">- Sarah L., Consultant, Ohio</div>
+            </div>
+            
+            <div class="testimonial">
+                "Finally, someone who gets what service providers deal with. This isn't generic business advice - it's the real deal."
+                <div class="testimonial-author">- Carlos M., Freelancer, California</div>
+            </div>
+        </div>
+
+        <!-- Email Capture -->
+        <div class="email-capture">
+            <h2 style="font-size: 2.8rem; margin-bottom: 25px; font-weight: 800;">Ready to Stop Undercharging?</h2>
+            <p style="font-size: 1.4rem; margin-bottom: 30px; opacity: 0.95;">
+                Get advanced pricing tools, templates, and strategies delivered to your inbox.
+            </p>
+            
+            <div class="email-form">
+                <h3 style="margin-bottom: 25px; font-size: 1.4rem;">Get FREE Advanced Tools</h3>
+                <input type="email" class="email-input" id="emailInput" placeholder="Enter your email address">
+                <button class="cta-button" onclick="captureEmail()">Get Advanced Pricing Tools FREE</button>
+                <p style="font-size: 0.9rem; color: rgba(255,255,255,0.8); margin-top: 20px;">No spam. Unsubscribe anytime. Used by 2,800+ professionals.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function calculatePricing() {
+            // Get input values
+            const hourlyWage = parseFloat(document.getElementById('hourlyWage').value) || 0;
+            const payrollTaxes = parseFloat(document.getElementById('payrollTaxes').value) || 0;
+            const crewSize = parseInt(document.getElementById('crewSize').value) || 1;
+            const billableHours = parseFloat(document.getElementById('billableHours').value) || 40;
+            
+            const vehicleCosts = parseFloat(document.getElementById('vehicleCosts').value) || 0;
+            const insurance = parseFloat(document.getElementById('insurance').value) || 0;
+            const equipment = parseFloat(document.getElementById('equipment').value) || 0;
+            const businessExpenses = parseFloat(document.getElementById('businessExpenses').value) || 0;
+            
+            // Calculate true labor cost per hour
+            const laborCostPerHour = (hourlyWage + payrollTaxes) * crewSize;
+            
+            // Calculate overhead per hour
+            const monthlyOverhead = vehicleCosts + insurance + equipment + businessExpenses;
+            const weeklyOverhead = monthlyOverhead / 4.33;
+            const overheadPerHour = weeklyOverhead / billableHours;
+            
+            // Calculate rates
+            const breakEvenRate = laborCostPerHour + overheadPerHour;
+            const profitableRate = breakEvenRate * 1.4; // 40% markup
+            
+            // Update display
+            document.getElementById('laborCostPerHour').textContent = `${laborCostPerHour.toFixed(2)}`;
+            document.getElementById('overheadPerHour').textContent = `${overheadPerHour.toFixed(2)}`;
+            document.getElementById('breakEvenRate').textContent = `${breakEvenRate.toFixed(2)}`;
+            document.getElementById('profitableRate').textContent = `${profitableRate.toFixed(2)}`;
+            
+            // Show shock reveal if they're undercharging
+            const typicalRate = 55; // Most people charge around $50-60/hour
+            if (typicalRate < breakEvenRate) {
+                const hourlyLoss = breakEvenRate - typicalRate;
+                const monthlyLoss = hourlyLoss * billableHours * 4.33;
+                const yearlyLoss = monthlyLoss * 12;
+                
+                document.getElementById('monthlyLoss').textContent = `${monthlyLoss.toFixed(0)}`;
+                document.getElementById('yearlyLoss').textContent = `${yearlyLoss.toFixed(0)}`;
+                document.getElementById('shockReveal').classList.add('show');
+            } else {
+                document.getElementById('shockReveal').classList.remove('show');
+            }
+        }
+
+        // Add event listeners to all input fields
+        document.querySelectorAll('.input-field').forEach(input => {
+            input.addEventListener('input', calculatePricing);
+        });
+
+        // Email capture functionality
+        function captureEmail() {
+            const email = document.getElementById('emailInput').value;
+            
+            if (!email || !email.includes('@')) {
+                alert('Please enter a valid email address');
+                return;
+            }
+            
+            // Show success message
+            const button = document.querySelector('.cta-button');
+            const originalText = button.textContent;
+            button.textContent = '✅ Check Your Email!';
+            button.style.background = 'linear-gradient(135deg, #6b7280, #374151)';
+            
+            // Simulate redirect to thank you page
+            setTimeout(() => {
+                alert('Success! Check your email for advanced pricing tools and strategies.');
+                // In real implementation: window.location.href = 'thank-you.html';
+            }, 500);
+            
+            // Reset button
+            setTimeout(() => {
+                button.textContent = originalText;
+                button.style.background = 'linear-gradient(135deg, #1e40af, #3730a3)';
+            }, 3000);
+        }
+
+        // Calculate initial values on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            calculatePricing();
+            
+            // Add interactive elements
+            const resultCards = document.querySelectorAll('.result-card');
+            resultCards.forEach((card, index) => {
+                setTimeout(() => {
+                    card.style.opacity = '0';
+                    card.style.transform = 'translateY(20px)';
+                    card.style.transition = 'all 0.5s ease';
+                    
+                    setTimeout(() => {
+                        card.style.opacity = '1';
+                        card.style.transform = 'translateY(0)';
+                    }, 100);
+                }, index * 150);
+            });
+        });
+
+        // Add hover effects
+        document.querySelectorAll('.result-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-12px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(-8px) scale(1)';
+            });
+        });
+
+        // Allow Enter key for email capture
+        document.getElementById('emailInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                captureEmail();
+            }
+        });
+    </script>
+</body>
+</html>

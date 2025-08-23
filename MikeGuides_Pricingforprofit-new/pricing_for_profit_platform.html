@@ -1,0 +1,1557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing for Profit - Transform Your Contracting Business</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .platform-header {
+            background: white;
+            border-radius: 20px;
+            padding: 30px 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo {
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8em;
+            font-weight: 700;
+            margin-right: 15px;
+        }
+
+        .platform-title {
+            font-size: 2em;
+            font-weight: 700;
+            color: #2c3e50;
+        }
+
+        .user-progress {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .progress-ring {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: conic-gradient(#27ae60 0deg 216deg, #ecf0f1 216deg 360deg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .progress-ring::before {
+            content: '';
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: white;
+            position: absolute;
+        }
+
+        .progress-text {
+            position: relative;
+            z-index: 1;
+            font-weight: 700;
+            color: #2c3e50;
+        }
+
+        .user-info {
+            text-align: right;
+        }
+
+        .welcome-text {
+            font-size: 1.1em;
+            color: #34495e;
+            margin-bottom: 5px;
+        }
+
+        .user-level {
+            font-size: 0.9em;
+            color: #27ae60;
+            font-weight: 600;
+        }
+
+        .main-dashboard {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .sidebar {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            height: fit-content;
+        }
+
+        .nav-menu {
+            margin-bottom: 30px;
+        }
+
+        .nav-item {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            border-radius: 12px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: #34495e;
+        }
+
+        .nav-item:hover {
+            background: #f8f9fa;
+            transform: translateX(5px);
+        }
+
+        .nav-item.active {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+        }
+
+        .nav-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-size: 1.2em;
+            background: rgba(52, 152, 219, 0.1);
+        }
+
+        .nav-item.active .nav-icon {
+            background: rgba(255,255,255,0.2);
+        }
+
+        .progress-sidebar {
+            border-top: 1px solid #ecf0f1;
+            padding-top: 20px;
+        }
+
+        .progress-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .progress-label {
+            font-size: 0.9em;
+            color: #7f8c8d;
+        }
+
+        .progress-bar {
+            width: 100px;
+            height: 6px;
+            background: #ecf0f1;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #27ae60, #2ecc71);
+            transition: width 0.5s ease;
+        }
+
+        .main-content {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            min-height: 600px;
+        }
+
+        .content-section {
+            display: none;
+        }
+
+        .content-section.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .module-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #ecf0f1;
+        }
+
+        .module-icon {
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            font-size: 1.5em;
+        }
+
+        .module-info h2 {
+            font-size: 2.2em;
+            color: #2c3e50;
+            margin-bottom: 8px;
+        }
+
+        .module-description {
+            color: #7f8c8d;
+            font-size: 1.1em;
+        }
+
+        .calculator-section {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 30px;
+            margin: 30px 0;
+        }
+
+        .calculator-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #34495e;
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ecf0f1;
+            border-radius: 8px;
+            font-size: 1em;
+            transition: border-color 0.3s ease;
+        }
+
+        .input-field:focus {
+            outline: none;
+            border-color: #3498db;
+        }
+
+        .currency {
+            position: relative;
+        }
+
+        .currency::before {
+            content: '$';
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #7f8c8d;
+            font-weight: 600;
+        }
+
+        .currency .input-field {
+            padding-left: 30px;
+        }
+
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .result-card {
+            background: linear-gradient(135deg, #27ae60, #2ecc71);
+            color: white;
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .result-value {
+            font-size: 2.2em;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .result-label {
+            font-size: 0.9em;
+            opacity: 0.9;
+        }
+
+        .market-intelligence {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 30px;
+            margin: 30px 0;
+        }
+
+        .market-filters {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .filter-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .filter-label {
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #34495e;
+        }
+
+        .select-field {
+            padding: 10px;
+            border: 2px solid #ecf0f1;
+            border-radius: 8px;
+            background: white;
+            font-size: 1em;
+        }
+
+        .competitor-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .competitor-card {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            border-left: 4px solid #3498db;
+        }
+
+        .competitor-name {
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .price-range {
+            font-size: 1.2em;
+            color: #27ae60;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .market-position {
+            font-size: 0.9em;
+            color: #7f8c8d;
+        }
+
+        .simulator-container {
+            background: #2c3e50;
+            border-radius: 15px;
+            padding: 30px;
+            margin: 30px 0;
+            color: white;
+        }
+
+        .chat-area {
+            background: #34495e;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            min-height: 300px;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .chat-message {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .message-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 0.9em;
+        }
+
+        .customer-avatar {
+            background: #e74c3c;
+        }
+
+        .contractor-avatar {
+            background: #27ae60;
+        }
+
+        .message-content {
+            background: #2c3e50;
+            padding: 12px 16px;
+            border-radius: 12px;
+            max-width: 70%;
+            line-height: 1.4;
+        }
+
+        .scenario-controls {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .scenario-btn {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background 0.3s ease;
+        }
+
+        .scenario-btn:hover {
+            background: #2980b9;
+        }
+
+        .response-input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #34495e;
+            border-radius: 8px;
+            background: #2c3e50;
+            color: white;
+            font-size: 1em;
+            margin-bottom: 15px;
+        }
+
+        .response-input::placeholder {
+            color: #95a5a6;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin: 30px 0;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(52, 152, 219, 0.4);
+        }
+
+        .btn-success {
+            background: linear-gradient(135deg, #27ae60, #229954);
+        }
+
+        .btn-warning {
+            background: linear-gradient(135deg, #f39c12, #e67e22);
+        }
+
+        .achievement-popup {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, #27ae60, #2ecc71);
+            color: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(39, 174, 96, 0.3);
+            transform: translateX(400px);
+            transition: transform 0.5s ease;
+            z-index: 1000;
+        }
+
+        .achievement-popup.show {
+            transform: translateX(0);
+        }
+
+        .course-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .stat-card {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+            border-left: 4px solid #3498db;
+        }
+
+        .stat-value {
+            font-size: 2.5em;
+            font-weight: 700;
+            color: #2c3e50;
+        }
+
+        .stat-label {
+            color: #7f8c8d;
+            margin-top: 5px;
+        }
+
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .resource-card {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 25px;
+            border-left: 4px solid #e74c3c;
+        }
+
+        .resource-icon {
+            background: #e74c3c;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        .resource-title {
+            font-size: 1.3em;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .resource-description {
+            color: #7f8c8d;
+            margin-bottom: 15px;
+        }
+
+        @media (max-width: 1200px) {
+            .main-dashboard {
+                grid-template-columns: 1fr;
+            }
+            
+            .sidebar {
+                order: 2;
+            }
+            
+            .main-content {
+                order: 1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .platform-header {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+            
+            .calculator-grid,
+            .market-filters {
+                grid-template-columns: 1fr;
+            }
+            
+            .scenario-controls {
+                justify-content: center;
+            }
+        }
+
+        .lesson-content {
+            line-height: 1.8;
+        }
+
+        .lesson-content h3 {
+            color: #2c3e50;
+            margin: 25px 0 15px 0;
+        }
+
+        .lesson-content ul {
+            margin: 15px 0 15px 25px;
+        }
+
+        .lesson-content li {
+            margin-bottom: 8px;
+        }
+
+        .highlight-box {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .highlight-box h4 {
+            color: #856404;
+            margin-bottom: 10px;
+        }
+
+        .danger-box {
+            background: #f8d7da;
+            border: 1px solid #f5c6cb;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .danger-box h4 {
+            color: #721c24;
+            margin-bottom: 10px;
+        }
+
+        .success-box {
+            background: #d5fce8;
+            border: 1px solid #c3e6cb;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .success-box h4 {
+            color: #155724;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Platform Header -->
+        <div class="platform-header">
+            <div class="logo-section">
+                <div class="logo">P₄P</div>
+                <div>
+                    <div class="platform-title">Pricing for Profit</div>
+                    <div style="color: #7f8c8d; font-size: 0.9em;">Transform Your Contracting Business</div>
+                </div>
+            </div>
+            
+            <div class="user-progress">
+                <div class="progress-ring">
+                    <div class="progress-text" id="overallProgress">60%</div>
+                </div>
+                <div class="user-info">
+                    <div class="welcome-text">Welcome back, Mike!</div>
+                    <div class="user-level">Level 2 - Profit Builder</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Dashboard -->
+        <div class="main-dashboard">
+            <!-- Sidebar Navigation -->
+            <div class="sidebar">
+                <div class="nav-menu">
+                    <div class="nav-item active" onclick="showSection('dashboard')">
+                        <div class="nav-icon">📊</div>
+                        <div>Dashboard</div>
+                    </div>
+                    <div class="nav-item" onclick="showSection('module1')">
+                        <div class="nav-icon">🧮</div>
+                        <div>Module 1: Cost Discovery</div>
+                    </div>
+                    <div class="nav-item" onclick="showSection('module2')">
+                        <div class="nav-icon">🎯</div>
+                        <div>Module 2: Market Intelligence</div>
+                    </div>
+                    <div class="nav-item" onclick="showSection('module3')">
+                        <div class="nav-icon">💬</div>
+                        <div>Module 3: Customer Psychology</div>
+                    </div>
+                    <div class="nav-item" onclick="showSection('resources')">
+                        <div class="nav-icon">📚</div>
+                        <div>Resources & Tools</div>
+                    </div>
+                </div>
+                
+                <div class="progress-sidebar">
+                    <h4 style="margin-bottom: 15px; color: #2c3e50;">Your Progress</h4>
+                    <div class="progress-item">
+                        <span class="progress-label">Module 1</span>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 100%"></div>
+                        </div>
+                    </div>
+                    <div class="progress-item">
+                        <span class="progress-label">Module 2</span>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 75%"></div>
+                        </div>
+                    </div>
+                    <div class="progress-item">
+                        <span class="progress-label">Module 3</span>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 20%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Content Area -->
+            <div class="main-content">
+                <!-- Dashboard Section -->
+                <div class="content-section active" id="dashboard">
+                    <div class="module-header">
+                        <div class="module-icon">📊</div>
+                        <div class="module-info">
+                            <h2>Your Progress Dashboard</h2>
+                            <div class="module-description">Track your transformation from struggling contractor to profit powerhouse</div>
+                        </div>
+                    </div>
+
+                    <div class="course-stats">
+                        <div class="stat-card">
+                            <div class="stat-value">$4,247</div>
+                            <div class="stat-label">Monthly Profit Increase</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">27</div>
+                            <div class="stat-label">Jobs Properly Priced</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">$87.50</div>
+                            <div class="stat-label">Your Optimal Rate</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">8</div>
+                            <div class="stat-label">Days Since Start</div>
+                        </div>
+                    </div>
+
+                    <div class="highlight-box">
+                        <h4>🎉 Recent Achievement: Profit Master!</h4>
+                        <p>You've successfully priced 25+ jobs using the system. Your average profit margin has increased from 8% to 23%!</p>
+                    </div>
+
+                    <div class="lesson-content">
+                        <h3>Quick Access Actions</h3>
+                        <div class="action-buttons">
+                            <button class="btn" onclick="showSection('module1')">Update Cost Calculator</button>
+                            <button class="btn btn-success" onclick="showSection('module2')">Check Market Rates</button>
+                            <button class="btn btn-warning" onclick="showSection('module3')">Practice Objections</button>
+                        </div>
+
+                        <h3>Your Next Steps</h3>
+                        <ul>
+                            <li>Complete Module 3 to master customer psychology (20% remaining)</li>
+                            <li>Download the mobile app for on-site pricing</li>
+                            <li>Join the weekly group coaching call this Thursday</li>
+                            <li>Submit your success story for the case study library</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Module 1: Cost Discovery -->
+                <div class="content-section" id="module1">
+                    <div class="module-header">
+                        <div class="module-icon">🧮</div>
+                        <div class="module-info">
+                            <h2>Module 1: Cost Discovery</h2>
+                            <div class="module-description">Discover your TRUE costs and calculate profitable rates</div>
+                        </div>
+                    </div>
+
+                    <div class="lesson-content">
+                        <h3>The Hidden Costs Most Contractors Miss</h3>
+                        <p>Before we calculate your rates, let's understand why most contractors lose money. They forget about:</p>
+                        
+                        <div class="danger-box">
+                            <h4>⚠️ The 7 Hidden Cost Killers</h4>
+                            <ul>
+                                <li><strong>Payroll taxes:</strong> Add 25-35% to every wage dollar</li>
+                                <li><strong>Equipment depreciation:</strong> That $30k truck costs $8/hour to operate</li>
+                                <li><strong>Unbillable time:</strong> Travel, estimates, callbacks, admin work</li>
+                                <li><strong>Material waste:</strong> 10-15% markup isn't enough</li>
+                                <li><strong>Insurance premiums:</strong> Rising 15% annually</li>
+                                <li><strong>Tool replacement:</strong> $200/month in breakage and theft</li>
+                                <li><strong>Seasonal fluctuations:</strong> Winter months with no income</li>
+                            </ul>
+                        </div>
+
+                        <h3>Your True Cost Calculator</h3>
+                        <p>Let's calculate YOUR real costs. Be honest with these numbers - your financial future depends on it.</p>
+                    </div>
+
+                    <div class="calculator-section">
+                        <div class="calculator-grid">
+                            <div>
+                                <h4 style="margin-bottom: 20px; color: #2c3e50;">👷 Labor Costs</h4>
+                                
+                                <div class="input-group currency">
+                                    <label class="input-label">Your hourly wage</label>
+                                    <input type="number" class="input-field" id="m1_hourlyWage" value="28" step="0.01">
+                                </div>
+                                
+                                <div class="input-group currency">
+                                    <label class="input-label">Payroll taxes & benefits/hour</label>
+                                    <input type="number" class="input-field" id="m1_payrollTaxes" value="9.80" step="0.01">
+                                </div>
+                                
+                                <div class="input-group">
+                                    <label class="input-label">Average crew size</label>
+                                    <input type="number" class="input-field" id="m1_crewSize" value="2" min="1">
+                                </div>
+                                
+                                <div class="input-group">
+                                    <label class="input-label">Billable hours/week</label>
+                                    <input type="number" class="input-field" id="m1_billableHours" value="32" min="1">
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <h4 style="margin-bottom: 20px; color: #2c3e50;">🏢 Monthly Overhead</h4>
+                                
+                                <div class="input-group currency">
+                                    <label class="input-label">Vehicle costs</label>
+                                    <input type="number" class="input-field" id="m1_vehicleCosts" value="950" step="0.01">
+                                </div>
+                                
+                                <div class="input-group currency">
+                                    <label class="input-label">Insurance</label>
+                                    <input type="number" class="input-field" id="m1_insurance" value="750" step="0.01">
+                                </div>
+                                
+                                <div class="input-group currency">
+                                    <label class="input-label">Tools & equipment</label>
+                                    <input type="number" class="input-field" id="m1_equipment" value="480" step="0.01">
+                                </div>
+                                
+                                <div class="input-group currency">
+                                    <label class="input-label">Business expenses</label>
+                                    <input type="number" class="input-field" id="m1_businessExpenses" value="420" step="0.01">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="results-grid">
+                            <div class="result-card">
+                                <div class="result-value" id="m1_laborCost">$75.60</div>
+                                <div class="result-label">True Labor Cost/Hour</div>
+                            </div>
+                            <div class="result-card">
+                                <div class="result-value" id="m1_overhead">$19.25</div>
+                                <div class="result-label">Overhead/Hour</div>
+                            </div>
+                            <div class="result-card">
+                                <div class="result-value" id="m1_breakeven">$94.85</div>
+                                <div class="result-label">Break-Even Rate</div>
+                            </div>
+                            <div class="result-card">
+                                <div class="result-value" id="m1_profitable">$132.79</div>
+                                <div class="result-label">Profitable Rate (40% markup)</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="success-box">
+                        <h4>✅ Module 1 Complete!</h4>
+                        <p>You now know your TRUE costs. Most contractors charge $50-65/hour and wonder why they're broke. You need to charge <strong>$132.79/hour</strong> to build a sustainable business.</p>
+                    </div>
+
+                    <div class="action-buttons">
+                        <button class="btn btn-success" onclick="completeModule(1)">Mark Module 1 Complete</button>
+                        <button class="btn" onclick="showSection('module2')">Continue to Module 2</button>
+                    </div>
+                </div>
+
+                <!-- Module 2: Market Intelligence -->
+                <div class="content-section" id="module2">
+                    <div class="module-header">
+                        <div class="module-icon">🎯</div>
+                        <div class="module-info">
+                            <h2>Module 2: Competitive Intelligence</h2>
+                            <div class="module-description">Know your market, position yourself strategically, win more profitable jobs</div>
+                        </div>
+                    </div>
+
+                    <div class="lesson-content">
+                        <h3>The 3-Tier Market Positioning Strategy</h3>
+                        <p>Every market has three tiers. Here's how to position yourself in each:</p>
+                        
+                        <div class="highlight-box">
+                            <h4>🎯 Choose Your Position Wisely</h4>
+                            <ul>
+                                <li><strong>Budget Tier (20% of market):</strong> Price-focused customers, thin margins, high volume</li>
+                                <li><strong>Value Tier (60% of market):</strong> Quality-conscious, reasonable price expectations</li>
+                                <li><strong>Premium Tier (20% of market):</strong> Want the best, price is secondary to quality</li>
+                            </ul>
+                        </div>
+
+                        <h3>Live Market Data for Your Area</h3>
+                        <p>Based on your location and specialties, here's what competitors are charging:</p>
+                    </div>
+
+                    <div class="market-intelligence">
+                        <div class="market-filters">
+                            <div class="filter-group">
+                                <label class="filter-label">Your Location</label>
+                                <select class="select-field" id="location">
+                                    <option>Dallas, TX Metro</option>
+                                    <option>Houston, TX</option>
+                                    <option>Austin, TX</option>
+                                    <option>San Antonio, TX</option>
+                                </select>
+                            </div>
+                            <div class="filter-group">
+                                <label class="filter-label">Trade Specialty</label>
+                                <select class="select-field" id="specialty">
+                                    <option>General Contractor</option>
+                                    <option>Electrical</option>
+                                    <option>Plumbing</option>
+                                    <option>HVAC</option>
+                                    <option>Flooring</option>
+                                    <option>Roofing</option>
+                                </select>
+                            </div>
+                            <div class="filter-group">
+                                <label class="filter-label">Project Size</label>
+                                <select class="select-field" id="projectSize">
+                                    <option>Small Jobs ($500-$2K)</option>
+                                    <option>Medium Jobs ($2K-$10K)</option>
+                                    <option>Large Jobs ($10K+)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="competitor-grid">
+                            <div class="competitor-card">
+                                <div class="competitor-name">Budget Tier Average</div>
+                                <div class="price-range">$45-$65/hour</div>
+                                <div class="market-position">Fast & Cheap • High turnover • Thin margins</div>
+                            </div>
+                            <div class="competitor-card">
+                                <div class="competitor-name">Value Tier Average</div>
+                                <div class="price-range">$75-$95/hour</div>
+                                <div class="market-position">Quality Work • Fair Price • Steady Business</div>
+                            </div>
+                            <div class="competitor-card">
+                                <div class="competitor-name">Premium Tier Average</div>
+                                <div class="price-range">$110-$150/hour</div>
+                                <div class="market-position">Top Quality • Premium Materials • Referral Based</div>
+                            </div>
+                            <div class="competitor-card">
+                                <div class="competitor-name">Your Calculated Rate</div>
+                                <div class="price-range">$132.79/hour</div>
+                                <div class="market-position">Premium Tier • High Profit • Sustainable</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="lesson-content">
+                        <h3>Positioning Strategy Worksheet</h3>
+                        
+                        <div class="success-box">
+                            <h4>✅ Your Recommended Position: Premium Value</h4>
+                            <p>Based on your costs ($132.79/hour), you should position in the <strong>Premium Tier</strong>. Here's your strategy:</p>
+                            <ul>
+                                <li><strong>Target customers:</strong> Quality-focused homeowners, established businesses</li>
+                                <li><strong>Key differentiators:</strong> Licensed, insured, guaranteed work, premium materials</li>
+                                <li><strong>Marketing message:</strong> "Done right the first time, backed by our guarantee"</li>
+                                <li><strong>Pricing strategy:</strong> $125-140/hour depending on job complexity</li>
+                            </ul>
+                        </div>
+
+                        <h3>Competitive Analysis Tools</h3>
+                        <div class="action-buttons">
+                            <button class="btn" onclick="generateReport()">Generate Competitor Report</button>
+                            <button class="btn" onclick="downloadPricing()">Download Pricing Guide</button>
+                            <button class="btn btn-warning" onclick="scheduleResearch()">Schedule Market Research</button>
+                        </div>
+                    </div>
+
+                    <div class="action-buttons">
+                        <button class="btn btn-success" onclick="completeModule(2)">Mark Module 2 Complete</button>
+                        <button class="btn" onclick="showSection('module3')">Continue to Module 3</button>
+                    </div>
+                </div>
+
+                <!-- Module 3: Customer Psychology Simulator -->
+                <div class="content-section" id="module3">
+                    <div class="module-header">
+                        <div class="module-icon">💬</div>
+                        <div class="module-info">
+                            <h2>Module 3: Customer Psychology Simulator</h2>
+                            <div class="module-description">Master difficult pricing conversations and objection handling</div>
+                        </div>
+                    </div>
+
+                    <div class="lesson-content">
+                        <h3>The Psychology of Pricing Conversations</h3>
+                        <p>Most contractors lose jobs not because their price is too high, but because they don't know how to present it confidently. This simulator will prepare you for real-world conversations.</p>
+                        
+                        <div class="highlight-box">
+                            <h4>🧠 Key Psychology Principles</h4>
+                            <ul>
+                                <li><strong>Anchoring:</strong> Present your price confidently first</li>
+                                <li><strong>Value stacking:</strong> Explain what they get for the price</li>
+                                <li><strong>Social proof:</strong> Reference other satisfied customers</li>
+                                <li><strong>Scarcity:</strong> Limited availability creates urgency</li>
+                                <li><strong>Reciprocity:</strong> Give value upfront to create obligation</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="simulator-container">
+                        <h3 style="margin-bottom: 20px;">Interactive Conversation Simulator</h3>
+                        
+                        <div class="scenario-controls">
+                            <button class="scenario-btn" onclick="startScenario('bathroom')">Bathroom Remodel</button>
+                            <button class="scenario-btn" onclick="startScenario('deck')">Deck Build</button>
+                            <button class="scenario-btn" onclick="startScenario('kitchen')">Kitchen Renovation</button>
+                            <button class="scenario-btn" onclick="startScenario('emergency')">Emergency Repair</button>
+                        </div>
+
+                        <div class="chat-area" id="chatArea">
+                            <div class="chat-message">
+                                <div class="message-avatar customer-avatar">👥</div>
+                                <div class="message-content">
+                                    Welcome to the conversation simulator! Choose a scenario above to practice your pricing conversations.
+                                </div>
+                            </div>
+                        </div>
+
+                        <input type="text" class="response-input" id="responseInput" placeholder="Type your response here..." disabled>
+                        <div class="action-buttons">
+                            <button class="btn" onclick="sendResponse()" id="sendBtn" disabled>Send Response</button>
+                            <button class="btn btn-warning" onclick="getHint()" id="hintBtn" disabled>Get Hint</button>
+                            <button class="btn btn-success" onclick="resetSimulator()">Reset Simulator</button>
+                        </div>
+                    </div>
+
+                    <div class="lesson-content">
+                        <h3>Objection Handling Cheat Sheet</h3>
+                        
+                        <div class="danger-box">
+                            <h4>❌ "That's too expensive!"</h4>
+                            <p><strong>Wrong response:</strong> "I can do it cheaper..."</p>
+                            <p><strong>Right response:</strong> "I understand price is important. Let me show you exactly what's included in this investment and why it's priced this way..."</p>
+                        </div>
+
+                        <div class="success-box">
+                            <h4>✅ Master Response Framework</h4>
+                            <ol>
+                                <li><strong>Acknowledge:</strong> "I understand your concern about the investment..."</li>
+                                <li><strong>Clarify:</strong> "When you say expensive, what are you comparing it to?"</li>
+                                <li><strong>Value stack:</strong> "Here's everything included in this price..."</li>
+                                <li><strong>Reframe:</strong> "This investment pays for itself when you consider..."</li>
+                                <li><strong>Close:</strong> "Would you like me to show you how we can structure the payment?"</li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <div class="action-buttons">
+                        <button class="btn btn-success" onclick="completeModule(3)">Mark Module 3 Complete</button>
+                        <button class="btn" onclick="showSection('resources')">Access Resources</button>
+                    </div>
+                </div>
+
+                <!-- Resources & Tools -->
+                <div class="content-section" id="resources">
+                    <div class="module-header">
+                        <div class="module-icon">📚</div>
+                        <div class="module-info">
+                            <h2>Resources & Tools</h2>
+                            <div class="module-description">Everything you need to implement and maintain profitable pricing</div>
+                        </div>
+                    </div>
+
+                    <div class="resources-grid">
+                        <div class="resource-card">
+                            <div class="resource-icon">📊</div>
+                            <div class="resource-title">Advanced Calculators</div>
+                            <div class="resource-description">Material markup calculator, equipment depreciation tracker, seasonal adjustment tools</div>
+                            <button class="btn">Download Tools</button>
+                        </div>
+
+                        <div class="resource-card">
+                            <div class="resource-icon">📄</div>
+                            <div class="resource-title">Pricing Templates</div>
+                            <div class="resource-description">Professional quote templates, proposal formats, contract language</div>
+                            <button class="btn">Get Templates</button>
+                        </div>
+
+                        <div class="resource-card">
+                            <div class="resource-icon">🎯</div>
+                            <div class="resource-title">Market Research</div>
+                            <div class="resource-description">Quarterly competitor analysis, pricing trends, market positioning reports</div>
+                            <button class="btn">View Reports</button>
+                        </div>
+
+                        <div class="resource-card">
+                            <div class="resource-icon">💬</div>
+                            <div class="resource-title">Script Library</div>
+                            <div class="resource-description">Objection handling scripts, follow-up templates, closing techniques</div>
+                            <button class="btn">Access Scripts</button>
+                        </div>
+
+                        <div class="resource-card">
+                            <div class="resource-icon">📱</div>
+                            <div class="resource-title">Mobile App</div>
+                            <div class="resource-description">On-site pricing calculator, quick quotes, customer management</div>
+                            <button class="btn">Download App</button>
+                        </div>
+
+                        <div class="resource-card">
+                            <div class="resource-icon">👥</div>
+                            <div class="resource-title">Community Access</div>
+                            <div class="resource-description">Private Facebook group, weekly coaching calls, success stories</div>
+                            <button class="btn">Join Community</button>
+                        </div>
+                    </div>
+
+                    <div class="lesson-content">
+                        <h3>Implementation Checklist</h3>
+                        <ul>
+                            <li>✅ Calculate your true hourly costs</li>
+                            <li>✅ Research local market rates</li>
+                            <li>✅ Practice objection handling</li>
+                            <li>⬜ Update all marketing materials with new positioning</li>
+                            <li>⬜ Implement new pricing on next 5 quotes</li>
+                            <li>⬜ Track results and adjust as needed</li>
+                            <li>⬜ Join weekly group coaching call</li>
+                            <li>⬜ Complete 30-day profit challenge</li>
+                        </ul>
+
+                        <div class="success-box">
+                            <h4>🎉 Congratulations!</h4>
+                            <p>You've completed the Pricing for Profit system. You now have the knowledge and tools to:</p>
+                            <ul>
+                                <li>Calculate profitable pricing for any job</li>
+                                <li>Position yourself strategically in your market</li>
+                                <li>Handle price objections with confidence</li>
+                                <li>Build a sustainable, profitable contracting business</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Achievement Popup -->
+    <div class="achievement-popup" id="achievementPopup">
+        <div style="display: flex; align-items: center; margin-bottom: 10px;">
+            <div style="font-size: 2em; margin-right: 15px;">🏆</div>
+            <div>
+                <div style="font-weight: 700; font-size: 1.1em;">Achievement Unlocked!</div>
+                <div id="achievementText">Module 1 Complete</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Global state management
+        let currentUser = {
+            name: "Mike",
+            level: 2,
+            progress: {
+                module1: 100,
+                module2: 75,
+                module3: 20,
+                overall: 65
+            },
+            stats: {
+                profitIncrease: 4247,
+                jobsPriced: 27,
+                optimalRate: 132.79,
+                daysSinceStart: 8
+            }
+        };
+
+        let currentScenario = null;
+        let conversationStep = 0;
+
+        // Navigation
+        function showSection(sectionId) {
+            // Hide all sections
+            document.querySelectorAll('.content-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Remove active class from nav items
+            document.querySelectorAll('.nav-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            // Show selected section
+            document.getElementById(sectionId).classList.add('active');
+            
+            // Add active class to clicked nav item
+            event.target.closest('.nav-item').classList.add('active');
+        }
+
+        // Module 1 Calculator
+        function calculateModule1() {
+            const hourlyWage = parseFloat(document.getElementById('m1_hourlyWage').value) || 0;
+            const payrollTaxes = parseFloat(document.getElementById('m1_payrollTaxes').value) || 0;
+            const crewSize = parseInt(document.getElementById('m1_crewSize').value) || 1;
+            const billableHours = parseFloat(document.getElementById('m1_billableHours').value) || 40;
+            
+            const vehicleCosts = parseFloat(document.getElementById('m1_vehicleCosts').value) || 0;
+            const insurance = parseFloat(document.getElementById('m1_insurance').value) || 0;
+            const equipment = parseFloat(document.getElementById('m1_equipment').value) || 0;
+            const businessExpenses = parseFloat(document.getElementById('m1_businessExpenses').value) || 0;
+            
+            // Calculate true labor cost per hour
+            const laborCostPerHour = (hourlyWage + payrollTaxes) * crewSize;
+            
+            // Calculate overhead per hour
+            const monthlyOverhead = vehicleCosts + insurance + equipment + businessExpenses;
+            const weeklyOverhead = monthlyOverhead / 4.33;
+            const overheadPerHour = weeklyOverhead / billableHours;
+            
+            // Calculate rates
+            const breakEvenRate = laborCostPerHour + overheadPerHour;
+            const profitableRate = breakEvenRate * 1.4; // 40% markup
+            
+            // Update display
+            document.getElementById('m1_laborCost').textContent = `${laborCostPerHour.toFixed(2)}`;
+            document.getElementById('m1_overhead').textContent = `${overheadPerHour.toFixed(2)}`;
+            document.getElementById('m1_breakeven').textContent = `${breakEvenRate.toFixed(2)}`;
+            document.getElementById('m1_profitable').textContent = `${profitableRate.toFixed(2)}`;
+            
+            // Update user's optimal rate
+            currentUser.stats.optimalRate = profitableRate;
+        }
+
+        // Module completion tracking
+        function completeModule(moduleNumber) {
+            currentUser.progress[`module${moduleNumber}`] = 100;
+            updateProgress();
+            showAchievement(`Module ${moduleNumber} Complete!`, `You've mastered the ${getModuleName(moduleNumber)} system`);
+        }
+
+        function getModuleName(moduleNumber) {
+            const names = {
+                1: "Cost Discovery",
+                2: "Market Intelligence", 
+                3: "Customer Psychology"
+            };
+            return names[moduleNumber];
+        }
+
+        function updateProgress() {
+            const total = (currentUser.progress.module1 + currentUser.progress.module2 + currentUser.progress.module3) / 3;
+            currentUser.progress.overall = Math.round(total);
+            document.getElementById('overallProgress').textContent = `${currentUser.progress.overall}%`;
+            
+            // Update progress bars
+            document.querySelectorAll('.progress-fill').forEach((bar, index) => {
+                const moduleProgress = Object.values(currentUser.progress)[index];
+                if (moduleProgress !== undefined) {
+                    bar.style.width = `${moduleProgress}%`;
+                }
+            });
+        }
+
+        // Achievement system
+        function showAchievement(title, description) {
+            const popup = document.getElementById('achievementPopup');
+            document.getElementById('achievementText').textContent = description;
+            popup.classList.add('show');
+            
+            setTimeout(() => {
+                popup.classList.remove('show');
+            }, 4000);
+        }
+
+        // Conversation Simulator
+        const scenarios = {
+            bathroom: {
+                title: "Bathroom Remodel Quote",
+                customerName: "Sarah",
+                situation: "Full bathroom renovation, $8,500 quote",
+                steps: [
+                    {
+                        customer: "Hi, I got your quote for $8,500. That seems really high for a bathroom. My neighbor got theirs done for $4,500.",
+                        hints: ["Acknowledge their concern", "Ask about what's included in the neighbor's quote", "Don't defend immediately"]
+                    },
+                    {
+                        customer: "Well, I guess theirs was just basic fixtures and they did some of the work themselves. But still, $8,500 is a lot of money for us.",
+                        hints: ["Explain value differences", "Break down what's included", "Compare apples to apples"]
+                    },
+                    {
+                        customer: "I understand you use quality materials, but we're on a tight budget. Is there any way you can work with us on the price?",
+                        hints: ["Offer alternatives", "Suggest phased approach", "Don't lower your rate"]
+                    }
+                ]
+            },
+            deck: {
+                title: "Deck Construction",
+                customerName: "Bob",
+                situation: "16x12 deck build, $6,800 quote",
+                steps: [
+                    {
+                        customer: "Your price is double what the other guy quoted! $6,800 vs $3,200. That's crazy!",
+                        hints: ["Stay calm", "Ask about the other quote details", "Don't bad-mouth competitors"]
+                    },
+                    {
+                        customer: "He said he'd use pressure-treated lumber and basic hardware. What's so different about your approach?",
+                        hints: ["Explain material differences", "Discuss longevity", "Value your expertise"]
+                    }
+                ]
+            }
+        };
+
+        function startScenario(scenarioType) {
+            currentScenario = scenarios[scenarioType];
+            conversationStep = 0;
+            
+            const chatArea = document.getElementById('chatArea');
+            chatArea.innerHTML = `
+                <div class="chat-message">
+                    <div class="message-avatar customer-avatar">👤</div>
+                    <div class="message-content">
+                        <strong>Scenario:</strong> ${currentScenario.title}<br>
+                        <strong>Customer:</strong> ${currentScenario.customerName}<br>
+                        <strong>Situation:</strong> ${currentScenario.situation}
+                    </div>
+                </div>
+                <div class="chat-message">
+                    <div class="message-avatar customer-avatar">${currentScenario.customerName}</div>
+                    <div class="message-content">
+                        ${currentScenario.steps[0].customer}
+                    </div>
+                </div>
+            `;
+            
+            document.getElementById('responseInput').disabled = false;
+            document.getElementById('sendBtn').disabled = false;
+            document.getElementById('hintBtn').disabled = false;
+        }
+
+        function sendResponse() {
+            const input = document.getElementById('responseInput');
+            const response = input.value.trim();
+            
+            if (!response) return;
+            
+            // Add user response to chat
+            const chatArea = document.getElementById('chatArea');
+            chatArea.innerHTML += `
+                <div class="chat-message">
+                    <div class="message-avatar contractor-avatar">You</div>
+                    <div class="message-content">${response}</div>
+                </div>
+            `;
+            
+            input.value = '';
+            
+            // Simulate AI feedback and next customer response
+            setTimeout(() => {
+                addFeedback(response);
+                nextCustomerResponse();
+            }, 1500);
+            
+            chatArea.scrollTop = chatArea.scrollHeight;
+        }
+
+        function addFeedback(response) {
+            const chatArea = document.getElementById('chatArea');
+            
+            // Simple feedback logic
+            let feedback = "Good response! ";
+            if (response.toLowerCase().includes('understand')) {
+                feedback += "You acknowledged their concern well.";
+            } else if (response.toLowerCase().includes('neighbor') || response.toLowerCase().includes('compare')) {
+                feedback += "Good strategy asking for comparison details.";
+            } else {
+                feedback += "Consider acknowledging their concern first.";
+            }
+            
+            chatArea.innerHTML += `
+                <div class="chat-message">
+                    <div class="message-avatar ai-avatar" style="background: #f39c12;">AI</div>
+                    <div class="message-content" style="background: #f39c12; color: white;">
+                        <strong>Feedback:</strong> ${feedback}
+                    </div>
+                </div>
+            `;
+        }
+
+        function nextCustomerResponse() {
+            conversationStep++;
+            
+            if (conversationStep < currentScenario.steps.length) {
+                const chatArea = document.getElementById('chatArea');
+                const step = currentScenario.steps[conversationStep];
+                
+                chatArea.innerHTML += `
+                    <div class="chat-message">
+                        <div class="message-avatar customer-avatar">${currentScenario.customerName}</div>
+                        <div class="message-content">${step.customer}</div>
+                    </div>
+                `;
+                
+                chatArea.scrollTop = chatArea.scrollHeight;
+            } else {
+                // Scenario complete
+                const chatArea = document.getElementById('chatArea');
+                chatArea.innerHTML += `
+                    <div class="chat-message">
+                        <div class="message-avatar ai-avatar" style="background: #27ae60;">✅</div>
+                        <div class="message-content" style="background: #27ae60; color: white;">
+                            <strong>Scenario Complete!</strong> You've successfully navigated this pricing conversation. Practice more scenarios to build confidence.
+                        </div>
+                    </div>
+                `;
+                
+                document.getElementById('responseInput').disabled = true;
+                document.getElementById('sendBtn').disabled = true;
+                document.getElementById('hintBtn').disabled = true;
+                
+                // Update progress
+                currentUser.progress.module3 = Math.min(100, currentUser.progress.module3 + 20);
+                updateProgress();
+            }
+        }
+
+        function getHint() {
+            if (currentScenario && conversationStep < currentScenario.steps.length) {
+                const hints = currentScenario.steps[conversationStep].hints;
+                const randomHint = hints[Math.floor(Math.random() * hints.length)];
+                
+                const chatArea = document.getElementById('chatArea');
+                chatArea.innerHTML += `
+                    <div class="chat-message">
+                        <div class="message-avatar ai-avatar" style="background: #f39c12;">💡</div>
+                        <div class="message-content" style="background: #f39c12; color: white;">
+                            <strong>Hint:</strong> ${randomHint}
+                        </div>
+                    </div>
+                `;
+                
+                chatArea.scrollTop = chatArea.scrollHeight;
+            }
+        }
+
+        function resetSimulator() {
+            const chatArea = document.getElementById('chatArea');
+            chatArea.innerHTML = `
+                <div class="chat-message">
+                    <div class="message-avatar customer-avatar">👥</div>
+                    <div class="message-content">
+                        Welcome to the conversation simulator! Choose a scenario above to practice your pricing conversations.
+                    </div>
+                </div>
+            `;
+            
+            document.getElementById('responseInput').disabled = true;
+            document.getElementById('responseInput').value = '';
+            document.getElementById('sendBtn').disabled = true;
+            document.getElementById('hintBtn').disabled = true;
+            
+            currentScenario = null;
+            conversationStep = 0;
+        }
+
+        // Module 2 functions
+        function generateReport() {
+            showAchievement("Report Generated!", "Competitor analysis downloaded to your account");
+        }
+
+        function downloadPricing() {
+            showAchievement("Pricing Guide Ready!", "Your custom pricing guide has been generated");
+        }
+
+        function scheduleResearch() {
+            showAchievement("Research Scheduled!", "We'll update your market data weekly");
+        }
+
+        // Event listeners
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add event listeners to Module 1 calculator
+            document.querySelectorAll('#module1 .input-field').forEach(input => {
+                input.addEventListener('input', calculateModule1);
+            });
+            
+            // Allow Enter key in simulator
+            document.getElementById('responseInput').addEventListener('keypress', function(e) {
+                if (e.key === 'Enter' && !this.disabled) {
+                    sendResponse();
+                }
+            });
+            
+            // Initialize
+            calculateModule1();
+            updateProgress();
+        });
+    </script>
+</body>
+</html>
