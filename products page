@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - MikeGuides</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+            padding: 40px 0;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .nav {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 20px;
+            padding: 10px 20px;
+            border-radius: 25px;
+            background: rgba(255,255,255,0.2);
+            transition: all 0.3s ease;
+        }
+
+        .nav a:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-2px);
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #4CAF50, #45a049);
+        }
+
+        .featured {
+            border: 3px solid #4CAF50;
+            transform: scale(1.02);
+        }
+
+        .featured::after {
+            content: '🔥 FEATURED';
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: #4CAF50;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .product-header {
+            margin-bottom: 20px;
+        }
+
+        .product-header h2 {
+            color: #4CAF50;
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        .product-header .tagline {
+            color: #666;
+            font-style: italic;
+            font-size: 1.1rem;
+        }
+
+        .product-description {
+            margin-bottom: 25px;
+            line-height: 1.7;
+        }
+
+        .features {
+            margin-bottom: 25px;
+        }
+
+        .features h4 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .features ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .features li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #4CAF50;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .pricing {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .price {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #4CAF50;
+        }
+
+        .original-price {
+            text-decoration: line-through;
+            color: #999;
+            font-size: 1.2rem;
+            margin-right: 10px;
+        }
+
+        .save-badge {
+            background: #ff4757;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+
+        .cta-button {
+            display: block;
+            width: 100%;
+            padding: 15px 30px;
+            background: #4CAF50;
+            color: white;
+            text-decoration: none;
+            text-align: center;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+        }
+
+        .cta-button:hover {
+            background: #45a049;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
+        }
+
+        .guarantee {
+            text-align: center;
+            margin-top: 15px;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .coming-soon {
+            opacity: 0.7;
+            position: relative;
+        }
+
+        .coming-soon::after {
+            content: 'COMING SOON';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0,0,0,0.8);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 10px;
+            font-weight: bold;
+        }
+
+        .bundle-section {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            margin: 40px 0;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            border: 3px solid #ffd700;
+        }
+
+        .bundle-section h2 {
+            color: #ff6b35;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .products-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .container {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🚀 MikeGuides Products</h1>
+            <p>Your guide from confusion to clarity</p>
+        </div>
+
+        <div class="nav">
+            <a href="index.html">Home</a>
+            <a href="products.html">Products</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+        </div>
+
+        <div class="products-grid">
+            <!-- AI Writing Workshop - Featured Product -->
+            <div class="product-card featured">
+                <div class="product-header">
+                    <h2>🤖 AI Writing Workshop</h2>
+                    <div class="tagline">Complete Content Creation System</div>
+                </div>
+                
+                <div class="product-description">
+                    <p><strong>Transform your content creation forever!</strong> This isn't just another AI tool - it's a complete 8-step workshop that guides you from blank page to published content.</p>
+                    
+                    <p>Built by someone who actually creates content, not just talks about it. Every step is tested, refined, and designed to get you real results.</p>
+                </div>
+
+                <div class="features">
+                    <h4>🎯 What You Get:</h4>
+                    <ul>
+                        <li>Interactive 8-step workflow system</li>
+                        <li>Project setup and audience targeting</li>
+                        <li>Research and discovery templates</li>
+                        <li>Content planning and ideation tools</li>
+                        <li>AI-assisted writing process</li>
+                        <li>Professional editing checklist</li>
+                        <li>SEO optimization guide</li>
+                        <li>Publishing and promotion strategy</li>
+                    </ul>
+                </div>
+
+                <div class="pricing">
+                    <div>
+                        <span class="original-price">$67</span>
+                        <span class="price">$37</span>
+                    </div>
+                    <div class="save-badge">Save $30!</div>
+                </div>
+
+                <!-- Replace this with your actual Gumroad link -->
+                <a href="#" class="cta-button">🚀 Get Instant Access - $37</a>
+                
+                <div class="guarantee">
+                    💯 30-day money-back guarantee
+                </div>
+            </div>
+
+            <!-- Etsy Shop Setup Guide -->
+            <div class="product-card featured">
+                <div class="product-header">
+                    <h2>🛍️ Etsy Shop Setup Guide</h2>
+                    <div class="tagline">Interactive Business Planning Tool</div>
+                </div>
+                
+                <div class="product-description">
+                    <p><strong>Stop guessing, start calculating!</strong> This interactive guide doesn't just tell you how to set up an Etsy shop - it lets you experiment with different pricing strategies until you find what works.</p>
+                    
+                    <p>The built-in profit calculator alone is worth the price - see exactly how much you'll make before you even list your first item!</p>
+                </div>
+
+                <div class="features">
+                    <h4>🎯 What You Get:</h4>
+                    <ul>
+                        <li>Step-by-step shop setup process</li>
+                        <li>Interactive profit margin calculator</li>
+                        <li>Pricing strategy experimentation tool</li>
+                        <li>Shipping cost optimization guide</li>
+                        <li>Product listing templates</li>
+                        <li>Photography and SEO tips</li>
+                        <li>Launch checklist and timeline</li>
+                        <li>Ongoing optimization strategies</li>
+                    </ul>
+                </div>
+
+                <div class="pricing">
+                    <div>
+                        <span class="original-price">$97</span>
+                        <span class="price">$67</span>
+                    </div>
+                    <div class="save-badge">Save $30!</div>
+                </div>
+
+                <!-- Replace this with your actual Gumroad link -->
+                <a href="#" class="cta-button">🛍️ Start Your Shop - $67</a>
+                
+                <div class="guarantee">
+                    💯 30-day money-back guarantee
+                </div>
+            </div>
+        </div>
+
+        <!-- Bundle Offer -->
+        <div class="bundle-section">
+            <h2>🎁 Complete Business Builder Bundle</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 20px;">Get BOTH tools and save big!</p>
+            
+            <div style="margin: 20px 0;">
+                <span style="text-decoration: line-through; color: #999; font-size: 1.5rem;">$104 separately</span>
+                <span style="font-size: 3rem; color: #ff6b35; font-weight: bold; margin-left: 20px;">$67</span>
+            </div>
+            
+            <p style="margin-bottom: 25px;"><strong>Save $37!</strong> Perfect for entrepreneurs who want to master both content creation AND e-commerce.</p>
+            
+            <!-- Replace this with your actual Gumroad bundle link -->
+            <a href="#" class="cta-button" style="max-width: 400px; margin: 0 auto; background: #ff6b35;">
+                🚀 Get Both Tools - $67
+            </a>
+        </div>
+
+        <!-- Coming Soon Section -->
+        <div style="text-align: center; margin: 40px 0;">
+            <h2 style="color: white; margin-bottom: 20px;">🔜 Coming Soon</h2>
+            <div class="products-grid">
+                <div class="product-card coming-soon">
+                    <h3>📊 Complete SEO Mastery Series</h3>
+                    <p>12 comprehensive guides covering every aspect of SEO</p>
+                    <div class="price">$97</div>
+                </div>
+                
+                <div class="product-card coming-soon">
+                    <h3>🎯 Platform Independence Course</h3>
+                    <p>Build your own digital empire without platform dependency</p>
+                    <div class="price">$127</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Gumroad Script -->
+    <script src="https://gumroad.com/js/gumroad.js"></script>
+</body>
+</html>
