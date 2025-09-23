@@ -1,0 +1,15 @@
+/* TEAM */
+Site: Pricing for Profit — https://pricingforprofit.co
+Author: MikeGuides — https://mikeguides.co
+Contact: mikeguidesblog@gmail.com
+
+/* TECHNOLOGY */
+Hosting: Netlify
+CDN: CloudFront (via Netlify)
+Stack: HTML, CSS, JavaScript (static site)
+
+/* THANKS */
+Thanks: Our customers and creators using the Pricing Calculator
+
+/* LAST UPDATE */
+Last-Updated: 2025-09-23
