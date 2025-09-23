@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Security Hall of Fame • Pricing for Profit</title>
+  <meta name="description" content="Public recognition for security researchers who responsibly disclose vulnerabilities to pricingforprofit.co." />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --brand: #2563eb;   /* MikeGuides blue */
+      --accent: #22c55e;  /* MikeGuides green */
+      --bg: #f9fafb;
+      --ink: #0f172a;
+      --muted: #475569;
+      --line: #e2e8f0;
+      --chip: rgba(37,99,235,.08);
+      --chipb: rgba(37,99,235,.22);
+    }
+    html,body { height: 100% }
+    body {
+      margin:0;
+      background: radial-gradient(1200px 800px at 70% -10%, #eaf2ff 0%, transparent 60%) var(--bg);
+      color: var(--ink);
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    }
+    .wrap { max-width: 880px; margin: 0 auto; padding: 24px }
+    header { padding: 28px 0 8px; border-bottom:1px solid var(--line); margin-bottom:18px }
+    h1 { font-family: Poppins, Inter, sans-serif; font-size: clamp(32px,6vw,44px); line-height:1.1; margin:0 0 6px }
+    .eyebrow {
+      display:inline-block; font-size:12px; color:var(--brand);
+      background:var(--chip); border:1px solid var(--chipb);
+      padding:4px 10px; border-radius:999px; letter-spacing:.02em; margin-bottom:10px;
+    }
+    p, li { color: var(--muted); line-height:1.6 }
+    h2 { margin: 24px 0 10px; font-size: 20px }
+    .card {
+      background:#fff; border:1px solid var(--line); border-radius:14px; padding:16px 18px; margin:14px 0;
+      box-shadow: 0 10px 30px rgba(15,23,42,.04);
+    }
+    .empty { text-align:center; color:#64748b; padding:18px 8px }
+    .row { display:grid; grid-template-columns: 1.3fr 1fr .7fr; gap:10px; padding:10px 0; border-bottom:1px dashed #e5e7eb }
+    .row:last-child { border-bottom:0 }
+    .hdr { font-size:12px; color:#64748b; text-transform:uppercase; letter-spacing:.06em; border-bottom:1px solid #e5e7eb; padding-bottom:8px; margin-bottom:6px }
+    .chip { display:inline-block; font-size:12px; padding:2px 8px; border-radius:999px; background:#ecfeff; border:1px solid #a5f3fc }
+    a { color: var(--brand); text-decoration: none }
+    a:hover { text-decoration: underline }
+    footer { margin: 28px 0 48px; color: #94a3b8; font-size: 13px }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <span class="eyebrow">Research Recognition</span>
+      <h1>Security Hall of Fame</h1>
+      <p>We recognize researchers who help us keep <strong>pricingforprofit.co</strong> secure through responsible disclosure. Thank you for your contributions and professionalism.</p>
+      <p>See our <a href="/security-policy.html">Security Policy</a> and <a href="/.well-known/security.txt">security.txt</a> for scope and reporting guidelines.</p>
+    </header>
+
+    <section>
+      <h2>Current Honorees</h2>
+      <div class="card">
+        <div class="row hdr"><div>Researcher</div><div>Finding</div><div>Resolved</div></div>
+
+        <!--
+        Example entry (copy/paste and edit; keep newest at top):
+        <div class="row">
+          <div><strong>Jane Doe</strong> <span class="chip">@janedoe</span></div>
+          <div>Reflected XSS on /calc (requires user interaction)</div>
+          <div>2025-10-04</div>
+        </div>
+        -->
+
+        <div class="empty">No entries yet — report a vulnerability to be listed here.</div>
+      </div>
+    </section>
+
+    <section>
+      <h2>How to Get Listed</h2>
+      <div class="card">
+        <ul>
+          <li>Report a valid, in-scope vulnerability per our <a href="/security-policy.html">Security Policy</a>.</li>
+          <li>Act in good faith (no data exfiltration, no disruption) and allow coordinated disclosure.</li>
+          <li>Once fixed, ask to be credited (name and/or handle). We’ll gladly add you here.</li>
+        </ul>
+      </div>
+    </section>
+
+    <footer>
+      Last updated: September 23, 2025 • © Pricing for Profit / MikeGuides
+    </footer>
+  </div>
+</body>
+</html>
