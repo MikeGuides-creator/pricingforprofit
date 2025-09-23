@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Security Policy • Pricing for Profit</title>
+  <meta name="description" content="Responsible disclosure and security policy for pricingforprofit.co." />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --brand: #2563eb;   /* MikeGuides blue */
+      --accent: #22c55e;  /* MikeGuides green */
+      --bg: #f9fafb;
+      --ink: #0f172a;
+      --muted: #475569;
+      --line: #e2e8f0;
+    }
+    html,body { height: 100% }
+    body {
+      margin: 0;
+      background: radial-gradient(1200px 800px at 70% -10%, #eaf2ff 0%, transparent 60%) var(--bg);
+      color: var(--ink);
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    }
+    .wrap { max-width: 880px; margin: 0 auto; padding: 24px }
+    header {
+      padding: 28px 0 8px;
+      border-bottom: 1px solid var(--line);
+      margin-bottom: 18px;
+    }
+    h1 {
+      font-family: Poppins, Inter, sans-serif;
+      font-size: clamp(32px, 6vw, 44px);
+      line-height: 1.1;
+      margin: 0 0 6px 0;
+    }
+    .eyebrow {
+      display: inline-block;
+      font-size: 12px;
+      color: var(--brand);
+      background: rgba(37,99,235,.08);
+      border: 1px solid rgba(37,99,235,.22);
+      padding: 4px 10px;
+      border-radius: 999px;
+      letter-spacing: .02em;
+      margin-bottom: 10px;
+    }
+    h2 { margin: 24px 0 10px; font-size: 20px }
+    p, li { color: var(--muted); line-height: 1.6 }
+    code { background:#f1f5f9; padding:2px 6px; border-radius:6px; }
+    .callout {
+      border: 1px solid var(--line);
+      background: #fff;
+      border-radius: 14px;
+      padding: 14px 16px;
+      margin: 16px 0;
+    }
+    .good { border-left: 4px solid var(--accent) }
+    .note { border-left: 4px solid var(--brand) }
+    a { color: var(--brand); text-decoration: none }
+    a:hover { text-decoration: underline }
+    footer { margin: 28px 0 48px; color: #94a3b8; font-size: 13px }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <span class="eyebrow">Responsible Disclosure</span>
+      <h1>Security Policy</h1>
+      <p class="muted">We value the security of our users and data. If you believe you’ve found a vulnerability, please tell us so we can fix it quickly.</p>
+    </header>
+
+    <section>
+      <h2>Scope</h2>
+      <p>This policy applies to the properties we control: <strong>pricingforprofit.co</strong> and any subdomains hosted by us on Netlify.</p>
+    </section>
+
+    <section>
+      <h2>How to Report</h2>
+      <div class="callout good">
+        <p>Email: <a href="mailto:mikeguidesblog@gmail.com">mikeguidesblog@gmail.com</a></p>
+        <p>Security TXT: <a href="/.well-known/security.txt">/.well-known/security.txt</a></p>
+      </div>
+      <p>Please include a clear description, steps to reproduce, the affected URL(s), and any proof-of-concept code or screenshots.</p>
+    </section>
+
+    <section>
+      <h2>Safe Harbor</h2>
+      <p>We will not pursue legal action against researchers who:</p>
+      <ul>
+        <li>Act in <strong>good faith</strong> and follow this policy.</li>
+        <li>Avoid privacy violations, data destruction, or service disruption.</li>
+        <li>Limit access to what’s necessary to demonstrate the issue.</li>
+        <li>Give us a <strong>reasonable time</strong> to fix the issue before public disclosure.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Rules of Engagement</h2>
+      <ul>
+        <li>No DDoS, spam, or brute force attacks.</li>
+        <li>No social engineering of our team or service providers.</li>
+        <li>No access to, or exfiltration of, other users’ personal data.</li>
+        <li>Use your own accounts for testing where applicable.</li>
+        <li>Automated scanners are fine at a <em>low rate</em>; don’t degrade availability.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Out of Scope</h2>
+      <ul>
+        <li>Reports about third-party services we don’t control.</li>
+        <li>Best-practice advisories without a proof-of-impact (e.g., missing CSP, cookie flags on non-auth pages).</li>
+        <li>Clickjacking on pages with no sensitive actions.</li>
+        <li>Rate limiting on non-auth endpoints.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Triage &amp; Response</h2>
+      <p>We aim to:</p>
+      <ul>
+        <li><strong>Acknowledge</strong> your report within <strong>3 business days</strong>.</li>
+        <li><strong>Keep you updated</strong> at key points (reproduced, fix in progress, fix deployed).</li>
+        <li><strong>Remediate</strong> valid issues as quickly as practical, typically within <strong>30 days</strong> depending on severity.</li>
+      </ul>
+      <p>We currently do not offer monetary bounties. With your permission, we may credit you on a future <em>Hall of Fame</em> page.</p>
+    </section>
+
+    <section class="callout note">
+      <p><strong>Coordinated Disclosure:</strong> Please refrain from public disclosure until a fix is released. We’ll coordinate timelines with you in good faith.</p>
+    </section>
+
+    <footer>
+      Last updated: September 23, 2025 • © Pricing for Profit / MikeGuides
+    </footer>
+  </div>
+</body>
+</html>
