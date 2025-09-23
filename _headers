@@ -1,0 +1,39 @@
+/*
+  # --- Security hardening (safe defaults) ---
+  Strict-Transport-Security: max-age=31536000
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: geolocation=(), camera=(), microphone=(), interest-cohort=()
+
+  # Tip: If you ever want a Content-Security-Policy, we can add one,
+  # but it needs to be tailored to your scripts/styles to avoid breaking inline JS.
+
+/*.html
+  # HTML should not be cached aggressively so edits show up immediately
+  Cache-Control: public, max-age=0, must-revalidate
+
+/*.json
+  Cache-Control: public, max-age=0, must-revalidate
+
+# Long-cache static assets (safe if filenames are stable; ideal if hashed)
+# If you don’t have an /assets folder, these extension matches still apply.
+# You can delete any block you don’t use.
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+/*.css
+  Cache-Control: public, max-age=31536000, immutable
+/*.js
+  Cache-Control: public, max-age=31536000, immutable
+/*.svg
+  Cache-Control: public, max-age=31536000, immutable
+/*.png
+  Cache-Control: public, max-age=31536000, immutable
+/*.jpg
+  Cache-Control: public, max-age=31536000, immutable
+/*.jpeg
+  Cache-Control: public, max-age=31536000, immutable
+/*.webp
+  Cache-Control: public, max-age=31536000, immutable
+/*.woff2
+  Cache-Control: public, max-age=31536000, immutable
