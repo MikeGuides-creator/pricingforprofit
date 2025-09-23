@@ -4,3 +4,5 @@ Contact: mailto:mikeguidesblog@gmail.com
 Preferred-Languages: en
 Expires: 2026-09-23T00:00:00Z
 Canonical: https://pricingforprofit.co/.well-known/security.txt
+Acknowledgments: https://pricingforprofit.co/security-hall-of-fame.html
+<a href="/security-hall-of-fame.html">Security Hall of Fame</a>
