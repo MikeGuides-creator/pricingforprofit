@@ -1,7 +1,0 @@
-url: "https://blog.pricingforprofit.co"
-baseurl: ""
-plugins:
-  - jekyll-seo-tag
-  - jekyll-sitemap
-  - jekyll-feed
-title: "MikeGuides Blog"
