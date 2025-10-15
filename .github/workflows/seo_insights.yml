@@ -1,0 +1,27 @@
+name: Daily SEO Signals
+on:
+  schedule:
+    - cron: "15 14 * * *"   # ~9:15 AM America/Chicago during CDT
+  workflow_dispatch: {}
+jobs:
+  seo:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      issues: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: "20" }
+      - run: npm i googleapis@140 undici@6
+      - run: node tools/gsc.mjs
+        env:
+          GSC_SITE_URL: "https://pricingforprofit.co"   # or sc-domain:pricingforprofit.co if Domain property
+          GCP_CLIENT_EMAIL: ${{ secrets.GCP_CLIENT_EMAIL }}
+          GCP_PRIVATE_KEY: ${{ secrets.GCP_PRIVATE_KEY }}
+      - run: node tools/plausible.mjs
+        env:
+          PLAUSIBLE_DOMAIN: "pricingforprofit.co"
+          PLAUSIBLE_TOKEN:  ${{ secrets.PLAUSIBLE_TOKEN }}
+      - name: Commit + Issue
+        run: |
