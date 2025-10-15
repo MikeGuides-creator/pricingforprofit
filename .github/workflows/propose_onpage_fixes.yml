@@ -1,0 +1,28 @@
+name: Propose On-Page Fixes
+on:
+  schedule:
+    - cron: "30 14 * * *"  # ~9:30 AM America/Chicago during CDT
+  workflow_dispatch: {}
+jobs:
+  propose:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: "20" }
+      - run: npm i undici@6
+      - run: node tools/onpage_suggestions.mjs
+        env:
+          SITE_ORIGIN: "https://pricingforprofit.co"   # or https://www.pricingforprofit.co
+          BRAND_VOICE: "MikeGuides: clear, helpful, confident; avoid hype; keep promises concrete."
+      - run: node tools/diff_guard.mjs
+      - name: Create PR
+        uses: peter-evans/create-pull-request@v6
+        with:
+          title: "On-page improvements (titles/meta/alt)"
+          body: "Automated suggestions. Reviewed by diff guard."
+          branch: "bot/onpage-$(date +%F)"
+          commit-message: "feat(onpage): titles/meta/alt improvements"
