@@ -25,3 +25,15 @@ jobs:
           PLAUSIBLE_TOKEN:  ${{ secrets.PLAUSIBLE_TOKEN }}
       - name: Commit + Issue
         run: |
+          mkdir -p reports/$(date +%F)
+          mv gsc-insights.md plausible-insights.md reports/$(date +%F)/
+          git config user.name "site-bot"
+          git config user.email "bot@example.com"
+          git add reports/
+          git commit -m "chore(reports): seo signals $(date +%F)" || echo "no changes"
+          git push
+      - uses: peter-evans/create-issue-from-file@v5
+        with:
+          title: "SEO Insights — $(date +%F)"
+          content-file: reports/$(date +%F)/gsc-insights.md
+          labels: seo, automation
