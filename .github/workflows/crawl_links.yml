@@ -1,0 +1,36 @@
+name: Daily Crawl & Link Checks
+on:
+  schedule:
+    - cron: "5 14 * * *"   # ~9:05 AM America/Chicago during CDT
+  workflow_dispatch: {}
+jobs:
+  crawl:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      issues: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: "20" }
+      - run: npm i undici@6 playwright@1.47 htmlparser2@9 glob@10
+      - run: node tools/crawl.mjs
+        env:
+          START_URL: "https://pricingforprofit.co"  # or https://www.pricingforprofit.co
+          MAX_PAGES: "300"
+      - run: node tools/linkcheck.mjs reports/latest.json > reports/latest.md
+      - name: Commit reports
+        run: |
+          mkdir -p reports/$(date +%F)
+          cp reports/latest.* reports/$(date +%F)/
+          git config user.name "site-bot"
+          git config user.email "bot@example.com"
+          git add reports/
+          git commit -m "chore(reports): crawl & linkcheck $(date +%F)" || echo "no changes"
+          git push
+      - name: Update Site Health issue
+        uses: peter-evans/create-issue-from-file@v5
+        with:
+          title: "Daily Site Health — $(date +%F)"
+          content-file: reports/latest.md
+          labels: health, automation
