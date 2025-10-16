@@ -6,21 +6,19 @@
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: geolocation=(), camera=(), microphone=(), interest-cohort=()
 
-  # Tip: If you ever want a Content-Security-Policy, we can add one,
-  # but it needs to be tailored to your scripts/styles to avoid breaking inline JS.
-
-/*
+  # --- Content Security Policy (allows Plausible + GTM and current inline usage) ---
   Content-Security-Policy: default-src 'self';
-  script-src 'self' https://plausible.io https://static.cloudflareinsights.com;
-  connect-src 'self' https://plausible.io https://plausible.events https://cloudflareinsights.com https://static.cloudflareinsights.com;
-  img-src 'self' data: blob:;
+  script-src 'self' https://plausible.io https://www.googletagmanager.com 'unsafe-inline';
+  connect-src 'self' https://plausible.io https://plausible.events https://www.google-analytics.com;
+  img-src 'self' https: data: blob:;
   style-src 'self' 'unsafe-inline';
-  font-src 'self';
+  font-src 'self' https: data:;
   object-src 'none';
   base-uri 'self';
   frame-ancestors 'none';
   form-action 'self';
   upgrade-insecure-requests
+
 
 /*.html
   # HTML should not be cached aggressively so edits show up immediately
