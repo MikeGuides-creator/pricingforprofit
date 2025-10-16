@@ -19,7 +19,6 @@
   form-action 'self';
   upgrade-insecure-requests
 
-
 /*.html
   # HTML should not be cached aggressively so edits show up immediately
   Cache-Control: public, max-age=0, must-revalidate
