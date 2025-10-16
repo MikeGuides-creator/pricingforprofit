@@ -1,0 +1,37 @@
+<!-- Favicon: P$ monogram
+     To match MG colors exactly, change:
+     - #0ea5e9 (blue) and #22c55e (green) in the <linearGradient>
+     - #0b1420 (dark background) if you prefer a lighter bg
+-->
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <defs>
+    <!-- Gradient for the P$ glyph -->
+    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0ea5e9"/>   <!-- MG-ish blue -->
+      <stop offset="100%" stop-color="#22c55e"/> <!-- MG-ish green -->
+    </linearGradient>
+    <!-- Slight inner shadow via soft mask -->
+    <filter id="inner" x="-20%" y="-20%" width="140%" height="140%" filterUnits="objectBoundingBox">
+      <feOffset dx="0" dy="2" result="o"/>
+      <feGaussianBlur in="o" stdDeviation="3" result="b"/>
+      <feComposite in="b" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 0
+                                           0 0 0 0 0
+                                           0 0 0 0 0
+                                           0 0 0 .18 0"/>
+      <feComposite in2="SourceGraphic" operator="over"/>
+    </filter>
+  </defs>
+
+  <!-- Rounded background tile -->
+  <rect x="16" y="16" width="480" height="480" rx="88" fill="#0b1420"/>
+
+  <!-- P$ monogram (bold, centered) -->
+  <g filter="url(#inner)">
+    <text x="50%" y="52%" text-anchor="middle"
+          font-family="ui-sans-serif, -apple-system, Segoe UI, Roboto, Helvetica, Arial, Noto Sans, 'Apple Color Emoji','Segoe UI Emoji'"
+          font-size="280" font-weight="800" fill="url(#g)" letter-spacing="2">
+      P$
+    </text>
+  </g>
+</svg>
