@@ -1,7 +1,10 @@
-[build]
-  publish = "dist"         # ← change to your folder
-  # command = "npm run build"  # if you build on Netlify
+# netlify.toml (root of repo)
 
+[build]
+  publish = "."        # your index.html is at the root
+  # command = ""       # leave empty or remove if you're not building
+
+# Keep this if you added it for SPA-style routing; harmless for static sites
 [[redirects]]
   from = "/*"
   to = "/index.html"
