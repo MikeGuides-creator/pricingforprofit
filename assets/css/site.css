@@ -12,7 +12,7 @@ h1 { outline: 4px solid red !important; }
   <meta name="description" content="Learn proven pricing strategies that increase profits by 20–40%. Expert pricing guidance for small business owners and consultants.">
 
   <!-- Local CSS -->
-  <link rel="stylesheet" href="/assets/css/site.css?v=1">
+  <link rel="stylesheet" href="/assets/css/site.css?v=3">
 
   <!-- Analytics (allowed by CSP) -->
   <script defer data-domain="pricingforprofit.co" src="https://plausible.io/js/script.js"></script>
@@ -95,6 +95,74 @@ h1 { outline: 4px solid red !important; }
         </div>
       </div>
     </section>
+/* --- FORCE styles so the page can't look "document-like" --- */
+.container{max-width:1200px;margin:0 auto;padding:20px !important;}
+
+.hero-section{
+  background: rgba(255,255,255,0.96) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border-radius:24px !important;
+  padding:80px 50px !important;
+  margin:32px 0 50px !important;
+  box-shadow:0 25px 50px rgba(0,0,0,.10) !important;
+  text-align:center !important;
+  border:1px solid rgba(0,0,0,0.06) !important;
+}
+
+.hero-section h1{
+  font-size: clamp(2rem, 5vw, 4rem) !important;
+  font-weight:900 !important;
+  line-height:1.1 !important;
+  margin:0 0 25px !important;
+  background: linear-gradient(135deg, #1e40af, #374151) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+.hero-subtitle{color:#4b5563 !important; font-size: clamp(1.1rem, 2.5vw, 1.8rem) !important; margin-bottom:30px !important;}
+
+.trust-indicators{display:flex !important; flex-wrap:wrap !important; gap:40px !important; justify-content:center !important; margin:30px 0 !important;}
+.trust-item{display:flex !important; align-items:center !important; color:#4b5563 !important; font-weight:600 !important; font-size:1.05rem !important;}
+.trust-icon{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-right:12px;background:#6b7280;color:#fff !important;}
+
+.problem-section{
+  background:#ffffff !important;
+  border-radius:24px !important;
+  padding:60px 50px !important;
+  margin:0 0 50px !important;
+  box-shadow:0 20px 40px rgba(0,0,0,.06) !important;
+  border:1px solid rgba(0,0,0,0.06) !important;
+}
+.section-title{text-align:center !important; font-weight:800 !important; margin-bottom:30px !important; color:#1f2937 !important;}
+.problem-grid{display:grid !important; grid-template-columns: repeat(auto-fit,minmax(280px,1fr)) !important; gap:30px !important;}
+.problem-item{background:#f9fafb !important; padding:24px !important; border-radius:16px !important; border-left:5px solid #1e40af !important;}
+
+.solution-section{
+  background: linear-gradient(135deg, #1e40af, #3730a3) !important;
+  color:#fff !important; border-radius:24px !important; padding:60px 50px !important; margin:0 0 50px !important; text-align:center !important;
+}
+
+.testimonials-section{
+  background:#ffffff !important;
+  border-radius:24px !important;
+  padding:60px 50px !important;
+  margin:0 0 50px !important;
+  box-shadow:0 20px 40px rgba(0,0,0,.06) !important;
+  border:1px solid rgba(0,0,0,0.06) !important;
+}
+.testimonials-grid{display:grid !important; grid-template-columns: repeat(auto-fit,minmax(320px,1fr)) !important; gap:30px !important;}
+
+.final-cta-section{
+  background: linear-gradient(135deg, #374151, #1f2937) !important;
+  color:#fff !important; border-radius:24px !important; padding:80px 50px !important; text-align:center !important; margin-bottom:50px !important;
+}
+
+/* mobile tweaks */
+@media (max-width: 768px){
+  .hero-section,.problem-section,.solution-section,.testimonials-section,.final-cta-section{padding:40px 28px !important;}
+}
 
     <!-- FINAL CTA -->
     <section class="final-cta-section">
