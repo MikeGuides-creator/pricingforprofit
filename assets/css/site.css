@@ -1,6 +1,10 @@
 <!doctype html>
 <html lang="en">
 <head>
+/* DEBUG — remove after test */
+html, body { background: #fffbe6 !important; }
+h1 { outline: 4px solid red !important; }
+
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
 
