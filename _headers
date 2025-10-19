@@ -1,13 +1,11 @@
 /*
-  # --- Security hardening (safe defaults) ---
   Strict-Transport-Security: max-age=31536000
   X-Content-Type-Options: nosniff
   X-Frame-Options: SAMEORIGIN
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: geolocation=(), camera=(), microphone=(), interest-cohort=()
 
-  # --- Content Security Policy (allows Plausible + current inline usage) ---
-  Content-Security-Policy: default-src 'self'; script-src 'self' https://plausible.io https://static.cloudflareinsights.com 'unsafe-inline'; connect-src 'self' https://plausible.io https://plausible.events https://cloudflareinsights.com https://static.cloudflareinsights.com; img-src 'self' https: data: blob:; style-src 'self' 'unsafe-inline'; font-src 'self' https: data:; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'self'; upgrade-insecure-requests
+  Content-Security-Policy: default-src 'self'; script-src 'self' https://plausible.io 'unsafe-inline'; connect-src 'self' https://plausible.io https://plausible.events; img-src 'self' https: data: blob:; style-src 'self' 'unsafe-inline'; font-src 'self' https: data:; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'self'; upgrade-insecure-requests
 
 /*.html
   # HTML should not be cached aggressively so edits show up immediately
