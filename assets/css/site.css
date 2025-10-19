@@ -1,83 +1,104 @@
-:root{
-  --brand:#1a237e;  /* indigo */
-  --accent:#16a34a; /* green */
-  --text:#0b0f19; --muted:#5b6072; --bg:#ffffff;
-}
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
 
-*{box-sizing:border-box}
-html,body{height:100%}
-body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,"Noto Sans","Apple Color Emoji","Segoe UI Emoji";color:var(--text);background:var(--bg);line-height:1.6}
+  <title>Small Business Pricing Strategy | Profitable Pricing Guide</title>
+  <meta name="description" content="Learn proven pricing strategies that increase profits by 20–40%. Expert pricing guidance for small business owners and consultants.">
 
-.container{max-width:1080px;margin:0 auto;padding:24px}
-.grid{display:grid;gap:24px}
-img{max-width:100%;height:auto;display:block}
-.btn{display:inline-block;padding:12px 18px;border-radius:12px;text-decoration:none}
-.btn-primary{background:var(--brand);color:#fff}
-.btn-outline{border:2px solid var(--brand);color:var(--brand)}
-/* --- Tailwind-lite shim for local-only CSS --- */
-.max-w-6xl{max-width:72rem}         /* 1152px */
-.mx-auto{margin-left:auto;margin-right:auto}
-.w-full{width:100%}
-.flex{display:flex}
-.flex-col{flex-direction:column}
-.items-center{align-items:center}
-.justify-between{justify-content:space-between}
-.inline-flex{display:inline-flex}
-.grid{display:grid}
-.gap-5{gap:1.25rem}
-.gap-6{gap:1.5rem}
-.gap-8{gap:2rem}
+  <!-- Local CSS -->
+  <link rel="stylesheet" href="/assets/css/site.css?v=1">
 
-/* padding / margin (common ones used in your markup) */
-.px-4{padding-left:1rem;padding-right:1rem}
-.px-6{padding-left:1.5rem;padding-right:1.5rem}
-.py-3{padding-top:.75rem;padding-bottom:.75rem}
-.py-6{padding-top:1.5rem;padding-bottom:1.5rem}
-.mt-2{margin-top:.5rem}
-.mt-3{margin-top:.75rem}
-.mt-4{margin-top:1rem}
-.mt-5{margin-top:1.25rem}
-.mt-6{margin-top:1.5rem}
-.mt-8{margin-top:2rem}
+  <!-- Analytics (allowed by CSP) -->
+  <script defer data-domain="pricingforprofit.co" src="https://plausible.io/js/script.js"></script>
 
-/* text & colors */
-.text-sm{font-size:.875rem;line-height:1.25rem}
-.text-2xl{font-size:1.5rem;line-height:2rem}
-.text-3xl{font-size:1.875rem;line-height:2.25rem}
-.text-4xl{font-size:2.25rem;line-height:2.5rem}
-.font-semibold{font-weight:600}
-.font-bold{font-weight:700}
-.font-extrabold{font-weight:800}
-.text-slate-900{color:#0f172a}
-.text-slate-700{color:#334155}
-.text-slate-600{color:#475569}
-.text-slate-500{color:#64748b}
+  <!-- Favicons (keep only the files you actually have) -->
+  <link rel="icon" href="/assets/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" href="/assets/favicon-32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="/assets/favicon-16.png" sizes="16x16">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" sizes="180x180">
 
-/* brand tokens you already set */
-.text-[var(--mg-blue)]{color:var(--brand)}
-.bg-[var(--mg-blue)]{background-color:var(--brand)}
-.bg-[var(--mg-green)]{background-color:var(--accent)}
-.border{border-width:1px;border-style:solid}
-.border-[var(--mg-blue)]{border-color:var(--brand)}
-.border-slate-200{border-color:#e5e7eb}
-.rounded-xl{border-radius:0.75rem}
-.rounded-2xl{border-radius:1rem}
-.shadow{box-shadow:0 1px 4px rgba(0,0,0,.08)}
-.shadow-\[0_10px_25px_-10px_rgba\(2,6,23,.1\)\]{box-shadow:0 10px 25px -10px rgba(2,6,23,.1)}
-.aspect-\[4\/3\]{aspect-ratio:4/3}
-.object-cover{object-fit:cover}
-.hover\:opacity-90:hover{opacity:.9}
-.hover\:bg-\[var\(--mg-blue\)\]:hover{background-color:var(--brand);color:#fff}
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Pricing for Profit — Free Pricing Calculator">
+  <meta property="og:description" content="Most businesses misprice by 20–30%. Use this free calculator to find your true costs and price with confidence.">
+  <meta property="og:url" content="https://pricingforprofit.co/">
+  <meta property="og:image" content="https://pricingforprofit.co/assets/images/og-cover/pricingforprofit-og-1200x630.jpg">
 
-/* responsive grid used in your layout */
-@media (min-width: 768px){
-  .md\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}
-}
-@media (min-width: 640px){
-  .sm\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .sm\:py-16{padding-top:4rem;padding-bottom:4rem}
-}
-@media (min-width: 1024px){
-  .lg\:grid-cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}
-  .lg\:px-8{padding-left:2rem;padding-right:2rem}
-}
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Pricing for Profit — Free Pricing Calculator">
+  <meta name="twitter:description" content="Stop guessing. Price with confidence.">
+  <meta name="twitter:image" content="https://pricingforprofit.co/assets/images/og-cover/pricingforprofit-og-1200x630.jpg">
+</head>
+
+<body>
+  <main class="container">
+    <!-- HERO -->
+    <section class="hero-section">
+      <h1>Price with Confidence</h1>
+      <p class="hero-subtitle">A free pricing calculator & practical guide for small businesses.</p>
+      <div class="trust-indicators">
+        <div class="trust-item"><span class="trust-icon">✓</span> No spreadsheet chaos</div>
+        <div class="trust-item"><span class="trust-icon">✓</span> Real profit targets</div>
+        <div class="trust-item"><span class="trust-icon">✓</span> Clear next steps</div>
+      </div>
+      <a class="cta-button" href="#get-started">Get the Free Calculator</a>
+    </section>
+
+    <!-- PROBLEM -->
+    <section class="problem-section">
+      <h2 class="section-title">Most businesses misprice by 20–30%</h2>
+      <div class="problem-grid">
+        <div class="problem-item">
+          <div class="problem-icon">💸</div>
+          <div class="problem-title">Hidden Costs</div>
+          <p class="problem-description">Materials, labor, overhead, taxes—accounted for correctly.</p>
+        </div>
+        <div class="problem-item">
+          <div class="problem-icon">⏱️</div>
+          <div class="problem-title">Time is Money</div>
+          <p class="problem-description">Build time into price, not into overtime.</p>
+        </div>
+        <div class="problem-item">
+          <div class="problem-icon">📉</div>
+          <div class="problem-title">Thin Margins</div>
+          <p class="problem-description">Aim for real profit, not break-even.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SOLUTION -->
+    <section id="get-started" class="solution-section">
+      <div class="solution-content">
+        <h2 class="section-title" style="color:#fff">The Pricing for Profit System</h2>
+        <p class="urgency-text">Plug in your numbers. See a profitable price. Save your template.</p>
+        <a class="cta-button" href="#download">Download the Calculator</a>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="testimonials-section">
+      <h2 class="section-title">What business owners say</h2>
+      <div class="testimonials-grid">
+        <div class="testimonial">
+          <p class="testimonial-text">“Finally know what to charge. Our quotes are consistent and profitable.”</p>
+          <div class="testimonial-author">— Small Contractor</div>
+        </div>
+        <div class="testimonial">
+          <p class="testimonial-text">“We stopped guessing and started hitting our targets.”</p>
+          <div class="testimonial-author">— Consultant</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="final-cta-section">
+      <div class="final-cta-content">
+        <h2 class="section-title" style="color:#fff">Ready to price with confidence?</h2>
+        <a class="cta-button" href="#download">Get the Free Calculator</a>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
