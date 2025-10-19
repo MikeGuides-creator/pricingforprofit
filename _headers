@@ -6,8 +6,6 @@
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: geolocation=(), camera=(), microphone=(), interest-cohort=()
 
-style-src 'self' 'unsafe-inline';
-
   # --- Content Security Policy (allows Plausible + current inline usage) ---
   Content-Security-Policy: default-src 'self'; script-src 'self' https://plausible.io https://static.cloudflareinsights.com 'unsafe-inline'; connect-src 'self' https://plausible.io https://plausible.events https://cloudflareinsights.com https://static.cloudflareinsights.com; img-src 'self' https: data: blob:; style-src 'self' 'unsafe-inline'; font-src 'self' https: data:; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'self'; upgrade-insecure-requests
 
