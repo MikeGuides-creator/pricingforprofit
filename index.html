@@ -315,6 +315,47 @@
             }
         }, 4000);
     </script>
+  <!-- Contact form (Netlify Forms) -->
+<section id="contact" class="section container">
+  <h2 class="brand" style="font-weight:800; font-size:clamp(22px,3.5vw,28px); margin:0 0 12px;">
+    Contact MikeGuides
+  </h2>
+  <p class="text-slate-600" style="margin:0 0 16px;">
+    Questions, ideas, or feedback? Send a message and I’ll reply to <strong>your email</strong>.
+  </p>
+
+  <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/thank-you.html"
+        class="card" style="display:grid; gap:16px; max-width:680px;">
+    <!-- required hidden fields -->
+    <input type="hidden" name="form-name" value="contact">
+    <p style="display:none"><label>Don’t fill this out: <input name="bot-field"></label></p>
+
+    <label class="text-slate-700">
+      Your name
+      <input type="text" name="name" required
+             style="display:block; width:100%; margin-top:6px; padding:12px; border:1px solid #e5e7eb; border-radius:12px;">
+    </label>
+
+    <label class="text-slate-700">
+      Your email
+      <input type="email" name="email" required
+             style="display:block; width:100%; margin-top:6px; padding:12px; border:1px solid #e5e7eb; border-radius:12px;">
+    </label>
+
+    <label class="text-slate-700">
+      Message
+      <textarea name="message" required rows="6"
+                style="display:block; width:100%; margin-top:6px; padding:12px; border:1px solid #e5e7eb; border-radius:12px;"></textarea>
+    </label>
+
+    <button type="submit"
+            class="inline-flex items-center justify-center rounded-xl px-5 py-3 font-semibold text-white"
+            style="background:var(--mg-blue); border:none;">
+      Send message
+    </button>
+  </form>
+</section>
+
     <a class="underline" href="mailto:mikeguidesblog@gmail.com">mikeguidesblog@gmail.com</a>
 <!-- Sticky CTA Bar -->
 <div id="cta-bar" style="position:fixed;left:16px;right:16px;bottom:16px;z-index:9999;background:#0b1220;color:#fff;border:1px solid #1e293b;border-radius:14px;padding:12px 14px;box-shadow:0 12px 30px rgba(2,6,23,.35);display:flex;gap:10px;align-items:center;justify-content:space-between;font-family:Inter,system-ui;">
