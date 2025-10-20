@@ -1,0 +1,15 @@
+name: Link check
+on:
+  push: { branches: [ main ] }
+  pull_request:
+jobs:
+  lychee:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check internal links & images
+        uses: lycheeverse/lychee-action@v1
+        with:
+          args: --accept 200,206 --include-fragments --max-concurrency 8 --scheme https .
+        env:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
