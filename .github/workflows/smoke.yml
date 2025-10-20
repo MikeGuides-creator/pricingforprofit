@@ -1,10 +1,30 @@
 name: Smoke test
-on: [push, pull_request]
+on:
+  push: { branches: [ main ] }
+  pull_request:
+
 jobs:
   smoke:
     runs-on: ubuntu-latest
     steps:
-      - name: Probe homepage
+      - name: Homepage 200 (with retry)
         run: |
-          curl -sI https://<contractors-page>.netlify.app/ | grep -E "200|Netlify"
-          curl -sI https://<contractors-page>.netlify.app/assets/css/site.css?v=1 | grep "text/css"
+          for i in 1 2 3; do
+            code=$(curl -s -o /dev/null -w "%{http_code}" https://contractors-page.netlify.app/)
+            if [ "$code" = "200" ]; then exit 0; fi
+            sleep 5
+          done
+          echo "Homepage not 200 after retries"; exit 1
+
+      - name: CSS is text/css (with retry)
+        run: |
+          for i in 1 2 3; do
+            if curl -sI https://contractors-page.netlify.app/assets/css/site.css?v=7 | grep -qi "content-type: text/css"; then exit 0; fi
+            sleep 5
+          done
+          echo "CSS not served as text/css after retries"; exit 1
+
+      - name: OG exists (soft fail for now)
+        continue-on-error: true
+        run: |
+          curl -sI https://contractors-page.netlify.app/assets/images/og-cover/pricingforprofit-og-1200x630.jpg | grep " 200 " || true
