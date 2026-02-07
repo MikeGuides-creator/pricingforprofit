@@ -1,0 +1,37 @@
+{
+  "start": "https://pricingforprofit.co",
+  "crawled": 1,
+  "results": [
+    {
+      "url": "https://pricingforprofit.co",
+      "status": 200,
+      "contentType": "text/html; charset=UTF-8",
+      "links": [
+        "https://mikeguides8.gumroad.com/l/apiqo?_gl=1*l6xfxn*_ga*MjAyMzE1OTg3NC4xNzU0ODgwNzA0*_ga_6LJN6D94N6*czE3NjEwNjQ4MTkkbzQ4JGcxJHQxNzYxMDY0ODUzJGoyNiRsMCRoMA..",
+        "https://mikeguides8.gumroad.com/l/apiqo?_gl=1*l6xfxn*_ga*MjAyMzE1OTg3NC4xNzU0ODgwNzA0*_ga_6LJN6D94N6*czE3NjEwNjQ4MTkkbzQ4JGcxJHQxNzYxMDY0ODUzJGoyNiRsMCRoMA..",
+        "https://mikeguides8.gumroad.com/l/vlkwxj?_gl=1*1piwv8a*_ga*MjAyMzE1OTg3NC4xNzU0ODgwNzA0*_ga_6LJN6D94N6*czE3NjEwNjQ4MTkkbzQ4JGcxJHQxNzYxMDY0ODUzJGoyNiRsMCRoMA..",
+        "https://mikeguides8.gumroad.com/l/vlkwxj?_gl=1*1piwv8a*_ga*MjAyMzE1OTg3NC4xNzU0ODgwNzA0*_ga_6LJN6D94N6*czE3NjEwNjQ4MTkkbzQ4JGcxJHQxNzYxMDY0ODUzJGoyNiRsMCRoMA..",
+        "https://mikeguides8.gumroad.com/l/business_bundle_builder?_gl=1*1c0f6ph*_ga*MjAyMzE1OTg3NC4xNzU0ODgwNzA0*_ga_6LJN6D94N6*czE3NjEwNjQ4MTkkbzQ4JGcxJHQxNzYxMDY0ODUzJGoyNiRsMCRoMA..",
+        "https://mikeguides8.gumroad.com/l/business_bundle_builder?_gl=1*1c0f6ph*_ga*MjAyMzE1OTg3NC4xNzU0ODgwNzA0*_ga_6LJN6D94N6*czE3NjEwNjQ4MTkkbzQ4JGcxJHQxNzYxMDY0ODUzJGoyNiRsMCRoMA..",
+        "https://mikeguides8.gumroad.com/l/ai-business-automation-roi",
+        "https://mikeguides8.gumroad.com/l/ai-business-automation-roi",
+        "https://mikeguides8.gumroad.com/l/AI_Writing_Workshop?_gl=1*ae5ozd*_ga*MjAyMzE1OTg3NC4xNzU0ODgwNzA0*_ga_6LJN6D94N6*czE3NjEwNjQ4MTkkbzQ4JGcxJHQxNzYxMDY0ODUzJGoyNiRsMCRoMA..",
+        "https://mikeguides8.gumroad.com/l/AI_Writing_Workshop?_gl=1*ae5ozd*_ga*MjAyMzE1OTg3NC4xNzU0ODgwNzA0*_ga_6LJN6D94N6*czE3NjEwNjQ4MTkkbzQ4JGcxJHQxNzYxMDY0ODUzJGoyNiRsMCRoMA..",
+        "https://mikeguides8.gumroad.com/l/visual-ai-studio?_gl=1*nskl5i*_ga*MjAyMzE1OTg3NC4xNzU0ODgwNzA0*_ga_6LJN6D94N6*czE3NjEwNjQ4MTkkbzQ4JGcxJHQxNzYxMDY0ODUzJGoyNiRsMCRoMA..",
+        "https://mikeguides8.gumroad.com/l/visual-ai-studio?_gl=1*nskl5i*_ga*MjAyMzE1OTg3NC4xNzU0ODgwNzA0*_ga_6LJN6D94N6*czE3NjEwNjQ4MTkkbzQ4JGcxJHQxNzYxMDY0ODUzJGoyNiRsMCRoMA..",
+        "https://mikeguides8.gumroad.com/l/chatgpt-mastery?_gl=1*nskl5i*_ga*MjAyMzE1OTg3NC4xNzU0ODgwNzA0*_ga_6LJN6D94N6*czE3NjEwNjQ4MTkkbzQ4JGcxJHQxNzYxMDY0ODUzJGoyNiRsMCRoMA..",
+        "https://mikeguides8.gumroad.com/l/chatgpt-mastery?_gl=1*nskl5i*_ga*MjAyMzE1OTg3NC4xNzU0ODgwNzA0*_ga_6LJN6D94N6*czE3NjEwNjQ4MTkkbzQ4JGcxJHQxNzYxMDY0ODUzJGoyNiRsMCRoMA.."
+      ],
+      "images": [
+        "https://pricingforprofit.co/assets/images/hero/hero-p4p.v20251117a.960.png",
+        "https://pricingforprofit.co/assets/images/products/ai-marketing-toolkit-a.png",
+        "https://pricingforprofit.co/assets/images/products/pricingforprofit-a.png",
+        "https://pricingforprofit.co/assets/images/products/business-builder-bundle-a.png",
+        "https://pricingforprofit.co/assets/images/products/ai-business-automation-roi-a.png",
+        "https://pricingforprofit.co/assets/images/products/ai-writing-workshop-a.png",
+        "https://pricingforprofit.co/assets/images/products/visual-ai-studio-a.png",
+        "https://pricingforprofit.co/assets/images/products/chatgpt-mastery-a.png"
+      ]
+    }
+  ]
+}
